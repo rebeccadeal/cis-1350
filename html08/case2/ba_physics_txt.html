@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      New Perspectives on HTML5 and CSS3, 7th Edition
+      Tutorial 8
+      Case Problem 2
+
+      Big Apple Physics Animation
+      Author: 
+      Date:   
+
+      Filename:   ba_physics.html
+
+   -->
+   
+   <meta charset="utf-8" />
+   <title>Big Apple Physics: Conservation of Momentum</title>
+   <link href="css/ba_reset.css" rel="stylesheet" />
+   <link href="css/ba_styles.css" rel="stylesheet" />
+</head>
+
+<body>
+   <header>
+      <img src="images/ba_logo.png" alt="Big Apple Physics" id="logoimg" />
+      <nav class="horizontal">
+         <ul>
+            <li><a href="#">lectures</a></li>
+            <li><a href="#">animations</a></li>
+            <li><a href="#">forums</a></li>
+            <li><a href="#">search</a></li>
+         </ul>
+      </nav>
+   </header>
+   <article>
+      <h1>Conservation of Momentum</h1>
+      <p>In an earlier <a href="#">lecture</a>, we learned from
+         Newton's 3rd Law of Motion that <em>for every action, there
+         is an equal and opposite reaction.</em> One consequence of 
+         this law is that if two objects collide the force applied
+         from the first object to the second will be equal and opposite
+         of the force applied from the second object to the first.
+         The result is that the total momentum (<var>p</var>) of all of the
+         objects in the system is the same before and after the
+         collision. This principle is known as the 
+         <strong>Conservation of Momentum</strong>.</p>
+      <p>In the animation below we have two objects approaching
+         each other on a collision course. The 10kg red ball is
+         moving at +1m/s and the 5kg blue ball is moving at
+         &minus;1 m/s. The total momentum within the system is therefore:</p>
+         
+      <code>
+         <var>p</var> = <var>m</var><sub>red</sub><var>v</var><sub>red</sub> 
+         + <var>m</var><sub>blue</sub><var>v</var><sub>blue</sub>
+      </code>
+      <code>
+         <var>p</var> = (10kg)(1m/s) + (5kg)(&minus;1m/s) = 5 kg&#183;m/s
+      </code>
+      
+      <p>If the red ball rebounds at a velocity of &minus;1 m/s, the 
+         blue ball must rebound with a velocity of +3 m/s to keep the total 
+         momentum of the system at 5 kg&#183;m/s, because: </p>
+      
+      <code>
+         <var>p</var> = (10kg)(&minus;1m/s) + (5kg)(3m/s) = 5 kg&#183;m/s
+      </code>
+      
+      <div id="animBox">
+         <img src="images/ba_redball.png" id="redBall" class="ballImg" alt="" />
+         <img src="images/ba_blueball.png" id="blueBall" class="ballImg" alt="" />
+         <div id="redSpeed1" class="animText">+1 m/s</div>
+         <div id="blueSpeed1" class="animText">&minus;1 m/s</div>
+         <div id="redSpeed2" class="animText">&minus;1 m/s</div>
+         <div id="blueSpeed2" class="animText">+3 m/s</div>
+         <div id="momentum" class="animText">Total Momentum: 5kg &#183; m/s</div>
+      </div>
+      
+      <p>The Conservation of Momentum
+         assumes a closed system in which there are no other forces 
+         interacting with the two objects. If there is an external force, 
+         it will cause a change in momentum in the 
+         entire system. For example, the momentum will be 
+         changed by the force of friction, eventually leading to complete 
+         loss of velocity and momentum.</p>
+   </article>
+   <footer>
+      Big Apple Physics &copy; 2018 English (US) <span> <a href="#">About</a> <a href="#">Developers</a> <a href="#">Terms</a> </span>
+   </footer>
+</body>
+</html>

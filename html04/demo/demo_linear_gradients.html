@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Tutorial Case
+
+   CSS Linear Gradients Demo
+   Author: Patrick Carey
+   Date:   3/1/2015
+
+   Filename:         demo_linear_gradients.htm
+   Supporting files: demo.gif, demo2.gif
+-->
+<title>CSS Demo Linear Gradient Style</title>
+<style type="text/css">
+/* use for all demo pages */
+   html       {height: 100%}
+   body       {background-color: white; background-image: url(images/demo2.gif); margin: 0px; 
+               width: 100%; height: 100%}
+   #demo_page {background-color: white; 
+               border-right: 5px solid rgb(0,0,128);
+               width: 900px; padding-bottom: 15px; height: 100%;
+               min-height: 100%; 
+			   position: relative;
+			   margin: 0px auto;
+			   height: 100%;}
+			   
+   * html #demo_page {height: 100%}
+
+   #demo_intro {width: 100%; position: relative; margin: 0px 10px}
+   #demo_intro table {margin: 0px; padding: 0px; border: 0px; width: 97%}
+   #demo_intro table td {vertical-align: bottom; padding-bottom: 5px}
+   #h2heading {color:yellow; background-image: url(demo.gif); letter-spacing: 0.5em; 
+               font-family: Arial, Helvetica, sans-serif; width: 97%; 
+               font-size: 1.5em; margin: 0px; text-align: right; 
+               border: 1px solid black}
+
+   #para      {font-size: 1em; border: 1px solid black; width: 97%;
+               background-color: ivory}
+   #para p    {margin: 8px}
+
+   #demo_container {position: relative; top: 10px; left: 0px; width: 100%;
+                    margin: 0px 10px}
+   #demo_footer {text-align: center; font-size: 8pt; border-top: 1px solid black; 
+                 margin: 25px 10px; width: 97%; clear: left; position: relative;
+                 top: 10px; left: 0px}
+   span.btitle {font-style: italic}
+
+/* styles specific to this demo */
+   #demo_container table {float: left; width: 440px}
+   #styleoptions {font-family: Arial, Helvetica, sans-serif; font-size: 0.8em}
+   th, td {vertical-align: top;}
+   input.preview {background-color: white;}
+   input.red {color: black; background-color: rgb(255, 155, 155); text-align: right}
+   input.green {color: black; background-color: rgb(155, 255, 155); text-align: right}
+   input.blue {color: black; background-color: rgb(155, 155, 255); text-align: right}
+
+   #output {display: block; float: left; width: 70%; margin: 10px auto;}
+
+   #preview {width: 100%; height: 250px; border: 1px solid black; 
+             padding: 5px;
+   }
+   #previewstyle {width: 100%; border: 1px solid black; font-family: monospace; padding: 5px; font-size: 0.9em;}
+   #demo_container h4 {color: white; background-color: black; margin-top: 0px; margin-bottom: 0px; width: 100%; 
+                       border: 1px solid black; padding: 5px; font-family: Arial, Helvetica, sans-serif}
+</style>
+
+<script type="text/javascript">
+
+
+
+
+function getProp(proparray){
+   var root=document.documentElement;
+   for (var i=0; i<proparray.length; i++){
+      if (typeof root.style[proparray[i]]=="string"){ 
+         return proparray[i];
+      }
+   }
+}
+
+function gVS(fid) {
+   var fIndex=document.forms[0].elements[fid].selectedIndex;
+   var fVal=document.forms[0].elements[fid].options[fIndex].value;
+   return fVal;
+}
+
+function gV(fid) {
+   var fVal=document.getElementById(fid).value;
+   return fVal;
+}
+
+function setstyles() {
+   styletable=document.stylelist;
+   previewObject=document.getElementById("preview");
+
+   var lgtext="linear-gradient(";
+
+   var direction="";
+   if (gVS("x1p")!="" || gV("y1p")!="") {
+      direction+="to "+gVS("x1p")+" "+gVS("y1p")+" ";
+   } else {
+      if (gV("angle")!="") direction+=gV("angle")+"deg ";
+   }
+
+   lgtext+=direction;
+
+   if (direction !="") lgtext+=",";
+
+   if (stylelist.use1.checked) {
+      lgtext+=document.getElementById("color1").value;
+      if (gV("p1")!="") {
+         if (gVS("punit1")!="") lgtext+=" "+gV("p1")+gVS("punit1")
+         else lgtext+=" "+gV("p1")+"px";
+      }
+   }
+
+   if (stylelist.use2.checked) {
+      lgtext+=", "+document.getElementById("color2").value;
+      if (gV("p2")!="") {
+         if (gVS("punit2")!="") lgtext+=" "+gV("p2")+gVS("punit2")
+         else lgtext+=" "+gV("p2")+"px";
+      }  
+   }
+   
+   if (stylelist.use3.checked) {
+      lgtext+=", "+document.getElementById("color3").value;
+      if (gV("p3")!="") {
+         if (gVS("punit3")!="") lgtext+=" "+gV("p3")+gVS("punit3")
+         else lgtext+=" "+gV("p3")+"px";
+      }  
+   }
+
+   if (stylelist.use4.checked) {
+      lgtext+=", "+document.getElementById("color4").value;
+      if (gV("p4")!="") {
+         if (gVS("punit4")!="") lgtext+=" "+gV("p4")+gVS("punit4")
+         else lgtext+=" "+gV("p4")+"px";
+      } 
+   }   
+
+   if (stylelist.use5.checked) {
+      lgtext+=", "+document.getElementById("color5").value;
+      if (gV("p5")!="") {
+         if (gVS("punit5")!="") lgtext+=" "+gV("p5")+gVS("punit5")
+         else lgtext+=" "+gV("p5")+"px";
+      }
+   }
+
+
+   lgtext+=")";
+   stext="background: "+lgtext+"; ";
+   stext2="background: "+lgtext+"; ";
+
+
+   previewObject.setAttribute("style", stext);
+
+   document.getElementById("previewstyle").innerHTML=stext2; 
+}
+
+</script>
+
+</head>
+
+<body>
+<form id="stylelist" name="stylelist">
+<div id="demo_page">
+
+<div id="demo_intro">
+   <table>
+   <tr><td style="width: 40%"><img src="images/cengage.jpg" alt="Course Technology Cengage Learning" /></td>
+       <td style="width: 60%; text-align:right; font-family: Arial, Helvetica, sans-serif; font-size: 1.2em">
+          New Perspectives on HTML5 and CSS3, 7th Edition<br />Tutorial 4
+   </td></tr>
+   </table>
+
+   <h2 id="h2heading">Linear Gradients </h2>
+   <div id="para">
+      <p>This demo shows how to create a background gradient using the CSS3 <code>linear-gradient()</code>
+         function. The syntax of the function is:
+      </p>
+      <p>
+         <code>linear-gradient(<i>direction</i>, <i>color-stop1</i>, <i>color-stop2</i> ...)</code>
+      </p>
+      <p>where <i>direction</i> is the direction of the gradient expressed either as an angle or the
+	     keywords:
+      </p>
+	  <p>
+	     <code>to [left | right] || [top | bottom]</code>
+	  </p>
+      <p>To use the demo, enter the direction and specify the
+         RGB color value and color stops for each color. Color stops can be expressed in pixels or percentages.
+         If you omit the direction the gradient will start from the top and move down. If you omit the color
+		 stops, the colors will be evenly space across the background. Up to 
+         five different colors can be specified. You must specify at least two color values. Click the checkboxes
+		 next to colors you want included in the gradient.
+      </p>
+   </div>
+</div>
+
+<div id="demo_container">
+
+   <table id="styleoptions">
+   <tr>
+      <td>To </td>
+      <td><select name="x1p" id="x1p" onchange="setstyles()">
+             <option value=""></option>
+             <option value="left">left</option>
+             <option value="right">right</option>
+          </select>
+          <select name="y1p" id="y1p" onchange="setstyles()">
+             <option value=""></option>
+             <option value="top">top</option>
+             <option value="bottom">bottom</option>
+          </select>
+          <br />
+          or specify the starting angle
+      </td>
+    </tr>
+    <tr>
+      <td>
+          Angle (deg)
+      </td>
+      <td>
+          <label>-360deg</label><input name="angle" id="angle" type="range" min="-360" max="360" step="5" value="0" onChange="setstyles()"  /><label>360deg</label>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 1</td>
+      <td><input type="checkbox" name="use1" onclick="setstyles()"/> <input type="color" name="color1" id="color1" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p1" id="p1" size="3" onblur="setstyles()" />
+          <select name="punit1" id="punit1"onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 2</td>
+      <td><input type="checkbox" name="use2" onclick="setstyles()"/> <input type="color" name="color2" id="color2" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p2" id="p2" size="3" onblur="setstyles()" />
+          <select name="punit2" id="punit2"onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 3</td>
+      <td><input type="checkbox" name="use3" onclick="setstyles()"/> <input type="color" name="color3" id="color3" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p3" id="p3" size="3" onblur="setstyles()" />
+          <select name="punit3" id="punit3" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 4</td>
+      <td><input type="checkbox" name="use4" onclick="setstyles()"/> <input type="color" name="color4" id="color4" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p4" id="p4" size="3" onblur="setstyles()" />
+          <select name="punit4" id="punit4" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 5</td>
+      <td><input type="checkbox" name="use5" onclick="setstyles()"/> <input type="color" name="color5" id="color5" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p5" id="p5" size="3" onblur="setstyles()" />
+          <select name="punit5" id="punit5" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   </table>
+
+   <div id="output">
+
+      <h4>Preview</h4>
+
+      <div id="preview">
+      </div>
+
+      <h4>Style</h4>
+  
+      <div id="previewstyle">
+         none
+      </div>
+
+   </div>
+</div>
+
+<div id="demo_footer">
+  Carey, P.
+  <span class="btitle">New Perspectives on HTML5 and CSS3, 7th Edition</span>,
+  Cengage Learning: Boston, 2015.
+</div>
+
+</div>
+</form>
+
+</body>
+</html>
+
+

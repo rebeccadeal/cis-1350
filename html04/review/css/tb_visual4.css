@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 4
+Review Assignment
+
+Individuals Design Style Sheet at Tree and Book
+Author: Rebecca Deal
+Date: 9/26/17
+
+Filename: tb_visual4.css
+*/
+
+/* Transformation Styles */
+
+article {
+  perspective: 800px;
+}
+
+figure#figure1 {
+  transform: translateZ(-120px);
+}
+
+figure#figure2 {
+  transform: translateY(-20px) rotateY(50deg);
+}
+
+figure#figure3 {
+  transform: translateY(-30px) rotateY(-50deg);
+}
+
+/* Filter Styles */
+
+figure#figure1 {
+  -webkit-filter: saturate(1.3);
+  -moz-filter: saturate(1.3);
+  filter: saturate(1.3);
+}
+
+figure#figure2 {
+  -webkit-filter: brightness(0.8) contrast(1.5);
+  -moz-filter: brightness(0.8) contrast(1.5);
+  filter: brightness(0.8) contrast(1.5);
+}
+
+figure#figure3 {
+  -webkit-filter: hue-rotate(170deg) saturate(3) brightness(1.5);
+  -moz-filter: hue-rotate(170deg) saturate(3) brightness(1.5);
+  filter: hue-rotate(170deg) saturate(3) brightness(1.5);
+}

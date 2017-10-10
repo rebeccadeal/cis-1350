@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Tutorial Case
+
+   CSS3 Transformations Demo
+   Author: Patrick Carey
+   Date:   3/1/2015
+
+   Filename:         demo_transformations.htm
+   Supporting files: demo.gif, demo2.gif, filter.png
+-->
+
+<title>CSS3 Transformations Styles Demo</title>
+<style type="text/css">
+/* use for all demo pages */
+   html       {height: 100%}
+   body       {background-color: white; background-image: url(images/demo2.gif); margin: 0px; 
+               width: 100%; height: 100%}
+   #demo_page {background-color: white; 
+               border-right: 5px solid rgb(0,0,128);
+               width: 900px; padding-bottom: 15px; height: 100%;
+               min-height: 100%; 
+			   position: relative;
+			   margin: 0px auto;
+			   height: 100%;}
+			   
+   * html #demo_page {height: 100%}
+
+   #demo_intro {width: 100%; position: relative; margin: 0px 10px}
+   #demo_intro table {margin: 0px; padding: 0px; border: 0px; width: 97%}
+   #demo_intro table td {vertical-align: bottom; padding-bottom: 5px}
+   #h2heading {color:yellow; background-image: url(demo.gif); letter-spacing: 0.5em; 
+               font-family: Arial, Helvetica, sans-serif; width: 97%; 
+               font-size: 1.5em; margin: 0px; text-align: right; 
+               border: 1px solid black}
+
+   #para      {font-size: 1em; border: 1px solid black; width: 97%;
+               background-color: ivory}
+   #para p    {margin: 8px}
+
+   #demo_container {position: relative; top: 10px; left: 0px; width: 100%;
+                    margin: 0px 10px}
+   #demo_footer {text-align: center; font-size: 8pt; border-top: 1px solid black; 
+                 margin: 25px 10px; width: 97%; clear: left; position: relative;
+                 top: 10px; left: 0px}
+   span.btitle {font-style: italic}
+
+/* styles specific to this demo */
+   #demo_container table {float: left; width: 440px}
+   #styleoptions {font-family: Arial, Helvetica, sans-serif; font-size: 0.8em}
+
+
+   #output {width: 510px; float: left; margin-bottom: 10px; margin-top: 10px; position: relative;}
+   #filterimg {height: 200px; width: 143px; display: block; margin: 20px auto;
+               background-image: url(filter.png); position: absolute; top: 130px; left: 190px; z-index: 2}
+   #backimg {height: 200px; width: 143px; display: block; margin: 20px auto;
+               background: rgb(191, 231, 191);
+               border: 8px dotted rgb(191, 231, 191);
+               box-sizing: border-box; position: absolute; top: 130px; left: 190px; z-index: 1}               
+
+   #preview {width: 100%; height: 510px; border: 1px solid black; font-family: serif; 
+             font-size: 100px; font-family: serif; padding: 5px;
+             text-align: center; line-height: 250px; position: relative;}
+   #previewstyle {width: 100%; border: 1px solid black; font-family: monospace; padding: 5px; font-size: 0.9em;}
+   #demo_container h4 {color: white; background-color: black; margin-top: 0px; margin-bottom: 0px; width: 100%; 
+                       border: 1px solid black; padding: 5px; font-family: Arial, Helvetica, sans-serif}
+   label {font-size: 0.7em; margin: 10px 0px; text-align: center; width: 10px;}
+   
+</style>
+
+<script type="text/javascript">
+var ptext="";
+var ftext="";
+var nf;
+
+function getPropStyle(proparray){
+   var root=document.documentElement;
+   for (var i=0; i<proparray.length; i++){
+      if (typeof root.style[proparray[i]]=="string"){ 
+         return proparray[i];
+      }
+   }
+}
+   function runTrans() {
+
+   nf=document.stylelist.Transform.value;
+   if (nf==99) ptext="";
+
+   else if (nf=="translate") {
+
+   ptext="<table cellpadding='5'><tr><td>offX (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offX' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label>";   
+   ptext+="</td></tr>";
+   ptext+="<tr><tr><td>offY (px):</td><td><label>-100px</label><input name='offY' type='range' min='-100' max='100' step='1' onChange='applyTrans()' value='0' /><label>100px</label>";     
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="translateX") {
+   ptext="<table cellpadding='5'><tr><td>offX (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offX' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label>";     
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="translateY") {
+   ptext="<table cellpadding='5'><tr><td>offY (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offY' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label>";     
+   ptext+="</td></tr></table>";
+   }
+
+   else if (nf=="scale") {
+   ptext="<table cellpadding='5'><tr><td>x:</td>";
+   ptext+="<td><label>0</label><input name='x' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label>";     
+   ptext+="</td></tr>";
+   ptext+="<tr><td>y:</td>";
+   ptext+="<td><label>0</label><input name='y' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label>";      
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="scaleX") {
+   ptext="<table cellpadding='5'><tr><td>x:</td>";
+   ptext+="<td><label>0</label><input name='x' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label>";      
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="scaleY") {
+   ptext="<table cellpadding='5'><tr><td>y:</td>";
+   ptext+="<td><label>0</label><input name='y' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label>";      
+   ptext+="</td></tr></table>";
+   }
+
+   else if (nf=="skew") {
+   ptext="<table cellpadding='5'><tr><td>angleX (deg):</td>";
+   ptext+="<td><label>-360deg</label><input name='angleX' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label>";      
+   ptext+="</td></tr>";
+   ptext+="<tr><td>angleY (deg):</td>";
+   ptext+="<td><label>-360deg</label><input name='angleY' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label>";    
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="skewX") {
+   ptext="<table cellpadding='5'><tr><td>angleX (deg):</td>";
+   ptext+="<td><label>-360deg</label><input name='angleX' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label>";    
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="skewY") {
+   ptext="<table cellpadding='5'><tr><td>angleY (deg):</td>";
+   ptext+="<td><label>-360deg</label><input name='angleY' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label>";    
+   ptext+="</td></tr></table>";
+   }
+
+   else if (nf=="rotate") {
+   ptext="<table cellpadding='5'><tr><td>angle (deg):</td>";
+   ptext+="<td><label>-360deg</label><input name='angle' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label>";    
+   ptext+="</td></tr></table>";
+   }
+
+   else if (nf=="matrix") {
+   ptext="<table cellpadding='5'><tr><td>m1:</td>";
+   ptext+="<td><input name='m1' onBlur='applyTrans()' value='1' />";
+   ptext+="<tr><td>m2:</td>";
+   ptext+="<td><input name='m2' onBlur='applyTrans()' value='0' />";
+   ptext+="<tr><td>m3:</td>";
+   ptext+="<td><input name='m3' onBlur='applyTrans()' value='0' />";
+   ptext+="<tr><td>m4:</td>";
+   ptext+="<td><input name='m4' onBlur='applyTrans()' value='1' />";
+   ptext+="<tr><td>m5:</td>";
+   ptext+="<td><input name='m5' onBlur='applyTrans()' value='0' />";
+   ptext+="<tr><td>m6:</td>";
+   ptext+="<td><input name='m6' onBlur='applyTrans()' value='0' />";
+   ptext+="</td></tr></table>";
+   }
+
+   document.getElementById("param").innerHTML=ptext;
+   applyTrans();
+}
+
+
+function applyTrans() {
+   previewObject=document.getElementById("filterimg");
+
+   previewObject.style="";
+   document.getElementById("previewstyle").innerHTML="none";
+
+   if (nf=="translate") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var toffX=document.stylelist.offX.value;
+      var toffY=document.stylelist.offY.value;
+      var stext="translate("+toffX+"px, "+toffY+"px)";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="translateX") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var toffX=document.stylelist.offX.value;
+      var stext="translateX("+toffX+"px)";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="translateY") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var toffY=document.stylelist.offY.value;
+      var stext="translateY("+toffY+"px)";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="scale") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var tx=document.stylelist.x.value;
+      var ty=document.stylelist.y.value;
+      var stext="scale("+tx+", "+ty+")";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="scaleX") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var tx=document.stylelist.x.value;
+      var stext="scaleX("+tx+")";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="scaleY") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var ty=document.stylelist.y.value;
+      var stext="scaleY("+ty+")";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="skew") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var tx=document.stylelist.angleX.value;
+      var ty=document.stylelist.angleY.value;
+      var stext="skew("+tx+"deg, "+ty+"deg)";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="skewX") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var tx=document.stylelist.angleX.value;
+      var stext="skewX("+tx+"deg)";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="skewY") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var ty=document.stylelist.angleY.value;
+      var stext="skewY("+ty+"deg)";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="rotate") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var t=document.stylelist.angle.value;
+      var stext="rotate("+t+"deg)";
+      previewObject.style[Prop]=stext;
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+
+   else if (nf=="matrix") {
+      var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+      var t1=document.stylelist.m1.value;
+      var t2=document.stylelist.m2.value;
+      var t3=document.stylelist.m3.value;
+      var t4=document.stylelist.m4.value;
+      var t5=document.stylelist.m5.value;
+      var t6=document.stylelist.m6.value;
+
+      var stext="matrix("+t1+","+t2+","+t3+","+t4+","+t5+","+t6+")";
+      var stextMoz="matrix("+t1+","+t2+","+t3+","+t4+","+t5+"px,"+t6+"px)";
+      
+      if (Prop=="MozTransform") previewObject.style[Prop]=stextMoz
+      else previewObject.style[Prop]=stext;
+
+      styletext="transform: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+
+
+}
+
+</script>
+
+
+</head>
+
+
+<body>
+<form id="stylelist" name="stylelist">
+<div id="demo_page">
+
+<div id="demo_intro">
+   <table>
+   <tr><td style="width: 40%"><img src="images/cengage.jpg" alt="Course Technology Cengage Learning" /></td>
+       <td style="width: 60%; text-align:right; font-family: Arial, Helvetica, sans-serif; font-size: 1.2em">
+          New Perspectives on HTML5 and CSS3, 7th Edition<br />Tutorial 4
+   </td></tr>
+   </table>
+
+   <h2 id="h2heading">CSS3 Transformation Styles </h2>
+   <div id="para">
+      <p>The CSS3 transformation styles are used to transform the appearance of a page object using one
+         of the following transformation effects: translation (to move the object horizontally and/or
+         vertically), scale (to increase or decrease the size of the object in the horizontal or
+         vertical direction), skew (to skew the object by a specified angle in the horizontal or vertical
+         direction), rotate (to rotate the object clockwise or counter-clockwise), or matrix (to apply
+         a matrix transformation to the object.) To use a CSS3 transformation, you apply the
+         style:
+      </p>
+      <p><code>transform: <i>effect</i>(<i>params</i>)</code></p>
+      <p>where where <i>effect</i> is the transformation function that will be applied to the 
+         object and <i>params</i> represents any parameters required by the transformation.
+      </p>
+      <p>To apply a CSS3 transformation, select one of the transformation types from the drop-down list
+         below and enter your parameter values. The transformation effect will be automatically applied 
+         to the image in the Preview box, each time you
+         change a parameter value. The corresponding CSS style rule is displayed in the Style box below.
+      </p>
+   </div>
+</div>
+
+<div id="demo_container">
+
+<table width="350">
+<tr><td valign="top" colspan="2">
+<h2>
+ CSS3 Transformations</h2>
+</td></tr>
+<tr>
+<td valign="top">Transformation</td>
+<td valign="top">
+<select name="Transform" onChange="runTrans()">
+   <option value="99">--- Select a CSS3 Transformation ---</option>
+   <option value="translate">translate</option>
+   <option value="translateX">translateX</option>
+   <option value="translateY">translateY</option>
+   <option value="scale">scale</option>
+   <option value="scaleX">scaleX</option>
+   <option value="scaleY">scaleY</option>
+   <option value="skew">skew</option>
+   <option value="skewX">skewX</option>
+   <option value="skewY">skewY</option>
+   <option value="rotate">rotate</option>
+   <option value="matrix">matrix</option>
+</select>
+</td>
+<tr><td colspan="2"><hr /></td></tr>
+<tr><td colspan="2"><div id="param"></div></td></tr>
+</table>
+
+
+   <div id="output">
+
+      <h4>Preview</h4>
+
+      <div id="preview">
+         <div id="filterimg"></div>
+         <div id="backimg"></div>
+      </div>
+
+      <h4>Style</h4>
+  
+      <div id="previewstyle">
+         none
+      </div>
+
+   </div>
+</div>
+
+<div id="demo_footer">
+  Carey, P.
+  <span class="btitle">New Perspectives on HTML5 and CSS3, 7th Edition</span>,
+  Cengage Learning: Boston, 2015.
+</div>
+
+</div>
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Tutorial Case
+
+   CSS Demo
+   Author: Patrick Carey
+   Date:   3/1/2015
+
+   Filename:         demo_box_shadows.htm
+   Supporting files: demo.gif, demo2.gif
+-->
+<title>CSS box-shadow Style Demo</title>
+<style type="text/css">
+/* use for all demo pages */
+   html       {height: 100%}
+   body       {background-color: white; background-image: url(images/demo2.gif); margin: 0px; 
+               width: 100%; height: 100%}
+   #demo_page {background-color: white; 
+               border-right: 5px solid rgb(0,0,128);
+               width: 900px; padding-bottom: 15px; height: 100%;
+               min-height: 100%; 
+			   position: relative;
+			   margin: 0px auto;
+			   height: 100%;}
+			   
+   * html #demo_page {height: 100%}
+
+   #demo_intro {width: 100%; position: relative; margin: 0px 10px}
+   #demo_intro table {margin: 0px; padding: 0px; border: 0px; width: 97%}
+   #demo_intro table td {vertical-align: bottom; padding-bottom: 5px}
+   #h2heading {color:yellow; background-image: url(demo.gif); letter-spacing: 0.5em; 
+               font-family: Arial, Helvetica, sans-serif; width: 97%; 
+               font-size: 1.5em; margin: 0px; text-align: right; 
+               border: 1px solid black}
+
+   #para      {font-size: 1em; border: 1px solid black; width: 97%;
+               background-color: ivory}
+   #para p    {margin: 8px}
+
+   #demo_container {position: relative; top: 10px; left: 0px; width: 100%;
+                    margin: 0px 10px}
+   #demo_footer {text-align: center; font-size: 8pt; border-top: 1px solid black; 
+                 margin: 25px 10px; width: 97%; clear: left; position: relative;
+                 top: 10px; left: 0px}
+   span.btitle {font-style: italic}
+
+/* styles specific to this demo */
+   #demo_container table {float: left; width: 440px}
+   #styleoptions {font-family: Arial, Helvetica, sans-serif; font-size: 0.8em}
+
+   #output {width: 510px; float: left; margin-bottom: 10px; margin-top: 10px;}
+
+   #preview {width: 100%; height: 250px; border: 1px solid black; font-family: serif; 
+             font-size: 100px; font-family: serif; padding: 5px;
+             text-align: center; line-height: 250px;}
+   #previewstyle {width: 100%; border: 1px solid black; font-family: monospace; padding: 5px; font-size: 0.9em;}
+   #box {width: 60%; height: 60%; margin: 50px auto; border: 1px solid black;}
+   #demo_container h4 {color: white; background-color: black; margin-top: 0px; margin-bottom: 0px; width: 100%; 
+                       border: 1px solid black; padding: 5px; font-family: Arial, Helvetica, sans-serif}
+</style>
+
+<script type="text/javascript">
+
+
+
+
+function getBoxStyle(proparray){
+   var root=document.documentElement;
+   for (var i=0; i<proparray.length; i++){
+      if (typeof root.style[proparray[i]]=="string"){ 
+         return proparray[i];
+      }
+   }
+}
+
+function setstyles() {
+   styletable=document.stylelist;
+
+   previewObject=document.getElementById("box");
+
+   styletext="";
+
+   previewObject.style.backgroundColor = styletable.bcolor.value;
+
+
+   bi=styletable.splace.selectedIndex;
+   bt=styletable.splace.options[bi].text;
+   if (bt != "default") {
+      boxtext="inset ";
+   } else {
+      boxtext="";
+   }
+   
+   boxtext+=styletable.scolor.value+" ";
+
+   offsetx=styletable.offsetx.value;
+   boxtext+=offsetx+"px ";
+
+   offsety=styletable.offsety.value;
+   boxtext+=offsety+"px ";
+
+   sblur=styletable.sblur.value;
+   boxtext+=sblur+"px ";
+   spread=styletable.spread.value;
+   if (spread == "0") {
+      boxtext+="";
+   } else {
+      boxtext+=spread+"px";
+   }
+
+
+var bsProp=getBoxStyle(['boxShadow', 'MozBoxShadow', 'WebkitBoxShadow']);
+previewObject.style[bsProp]=boxtext;
+
+   styletext+="-moz-box-shadow: "+boxtext+";<br />webkit-box-shadow: "+boxtext+";<br />box-shadow: "+boxtext+";";
+   document.getElementById("previewstyle").innerHTML=styletext; 
+}
+
+</script>
+
+</head>
+
+<body>
+<form id="stylelist" name="stylelist">
+<div id="demo_page">
+
+<div id="demo_intro">
+   <table>
+   <tr><td style="width: 40%"><img src="images/cengage.jpg" alt="Course Technology Cengage Learning" /></td>
+       <td style="width: 60%; text-align:right; font-family: Arial, Helvetica, sans-serif; font-size: 1.2em">
+          New Perspectives on HTML5 and CSS3, 7th Edition<br />Tutorial 4
+   </td></tr>
+   </table>
+
+   <h2 id="h2heading">CSS box-shadow style </h2>
+   <div id="para">
+      <p>This page demonstrates how to apply the CSS3 <code>box-shadow</code> style.
+         Use the input controls to specify the background color of the box in the 
+         Preview window. You can then apply a box shadow by specifying whether to
+         place the shadow outside the box (default) or within (inset) and setting 
+         shadow color, offset in the horizontal and vertical direction, blurring
+         size, and shadow spread. All distances are expressed in pixels. 
+         The corresponding CSS3 style rule is displayed in the Style box.
+      </p>
+   </div>
+</div>
+
+<div id="demo_container">
+
+   <table id="styleoptions">
+   <tr>
+      <td>background-color</td>
+	  <td><input type="color" name="bcolor" value="#FFFFFF" onChange="setstyles()" /></td>
+   </tr>
+   <tr>
+      <td>shadow placement</td>
+      <td><select name="splace" id="splace" onchange="setstyles()">
+             <option>default</option>
+             <option>inset</option>
+         </select>
+      </td>
+   </tr>
+
+   <tr>
+      <td>shadow-color</td>
+	  <td><input type="color" name="scolor" value="0" onChange="setstyles()" /></td>
+   </tr>   
+
+   <tr>
+      <td>shadow offset x</td>
+      <td><label>-30px</label><input type="range" name="offsetx" id="offsetx" type="range" min="-30" max="30" step="1" value="0" onChange="setstyles()"/><label>30px</label>
+      </td>
+   </tr>
+
+   <tr>
+      <td>shadow offset y</td>
+      <td><label>-30px</label><input type="range" name="offsety" id="offsety" type="range" min="-30" max="30" step="1" value="0" onChange="setstyles()"/><label>30px</label>
+      </td>
+   </tr>
+
+   <tr>
+      <td>shadow blur</td>
+      <td><label>0px</label><input type="range" name="sblur" id="sblur" type="range" min="0" max="30" step="1" value="0" onChange="setstyles()"/><label>30px</label>
+      </td>
+   </tr>
+   
+   <tr>
+      <td>shadow spread</td>
+      <td><label>-30px</label><input type="range" name="spread" id="spread" type="range" min="-30" max="30" step="1" value="0" onChange="setstyles()"/><label>30px</label>
+      </td>
+   </tr>
+   
+
+   </table>
+
+   <div id="output">
+
+      <h4>Preview</h4>
+
+      <div id="preview">
+         <div id="box"></div>
+      </div>
+
+      <h4>Style</h4>
+  
+      <div id="previewstyle">
+         none
+      </div>
+
+   </div>
+</div>
+
+<div id="demo_footer">
+  Carey, P.
+  <span class="btitle">New Perspectives on HTML5 and CSS3, 7th Edition</span>,
+  Cengage Learning: Boston, 2015.
+</div>
+
+
+</div>
+</form>
+
+</body>
+</html>
+
+

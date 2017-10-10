@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!--
+  New Perspectives on HTML5 and CSS3, 7th Edition
+  Tutorial 6
+  Case Problem 2
+
+  Pages: 492-494
+  Due Date: 10/15/17
+
+  Sudoku Puzzle
+  Author: Rebecca Deal
+  Date: 10/10/17
+
+  Filename: jpf_sudoku.html
+  Path: /rebecca.deal/html06/case2/jpf_sudoku.html
+  -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Sudoku Puzzle</title>
+  <link href="css/jpf_reset.css" rel="stylesheet" />
+  <link href="css/jpf_styles.css" rel="stylesheet" />
+  <link href="css/jpf_sudoku.css" rel="stylesheet" />
+
+</head>
+<body>
+
+  <header>
+    <img src="images/jpf_logo.png" alt="Japanese Puzzle Factory" id="logoimg" />
+    <nav><a id="navicon" href="#"><img src="images/jpf_navicon.png" alt="" /></a>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Store</a></li>
+        <li><a href="#">Hints</a></li>
+        <li><a href="#">Forum</a></li>
+        <li><a href="#">Competitions</a></li>
+        <li><a href="#">Site Map</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <table class="spuzzle">
+      <caption>Sudoku</caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>A</th>
+          <td rowspan="3" colspan="3" class="greenBox">
+            <table class="subTable">
+              <tr>
+                <td></td>
+                <td></td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>5</td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+          <td rowspan="3" colspan="3" class="goldBox">
+            <table class="subTable">
+              <tr>
+                <td>5</td>
+                <td></td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+          <td rowspan="3" colspan="3" class="greenBox">
+            <table class="subTable">
+              <tr>
+                <td></td>
+                <td>7</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <th>B</th>
+        </tr>
+        <tr>
+          <th>C</th>
+        </tr>
+        <tr>
+          <th>D</th>
+          <td rowspan="3" colspan="3" class="goldBox">
+            <table class="subTable">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td></td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>7</td>
+                <td>2</td>
+              </tr>
+            </table>
+          </td>
+          <td rowspan="3" colspan="3" class="greenBox">
+            <table class="subTable">
+              <tr>
+                <td></td>
+                <td>2</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>9</td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+          <td rowspan="3" colspan="3" class="goldBox">
+            <table class="subTable">
+              <tr>
+                <td>9</td>
+                <td>3</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td></td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <th>E</th>
+        </tr>
+        <tr>
+          <th>F</th>
+        </tr>
+        <tr>
+          <th>G</th>
+          <td rowspan="3" colspan="3" class="greenBox">
+            <table class="subTable">
+              <tr>
+                <td></td>
+                <td></td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>6</td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+          <td rowspan="3" colspan="3" class="goldBox">
+            <table class="subTable">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td></td>
+                <td>1</td>
+              </tr>
+            </table>
+          </td>
+          <td rowspan="3" colspan="3" class="greenBox">
+            <table class="subTable">
+              <tr>
+                <td></td>
+                <td>5</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <th>H</th>
+        </tr>
+        <tr>
+          <th>I</th>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <article>
+    <h1>To Play</h1>
+    <p>Sudoku is played on a 9x9 grid with nine 3x3 boxes placed within the
+    grid. Enter a digit from 1 to 9 in each table cell. A few starting numbers
+    have been supplied for you. The digits from 1 to 9 can appear only once each
+    in every row, column, and box in the table (diagonals don't count). Every
+    Sudoku puzzle has a unique solution.</p>
+    <p>Good luck!</p>
+  </article>
+
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="#">Akari</a></li>
+        <li><a href="#">Divide by Box</a></li>
+        <li><a href="#">Fillomino</a></li>
+        <li><a href="#">Hashiwokakero</a></li>
+        <li><a href="#">Heyawake</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Hitori</a></li>
+        <li><a href="#">Kakuro</a></li>
+        <li><a href="#">Katagaku</a></li>
+        <li><a href="#">Masugo</a></li>
+        <li><a href="#">Masyu</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Nonogram</a></li>
+        <li><a href="#">Oekaki Logic</a></li>
+        <li><a href="#">Shikaku</a></li>
+        <li><a href="#">Sudoku</a></li>
+        <li><a href="#">Suhai</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Super Sudoku</a></li>
+        <li><a href="#">Tenketsu</a></li>
+        <li><a href="#">Tentai Show</a></li>
+        <li><a href="#">Wordoku</a></li>
+        <li><a href="#">Yajilin</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+</body>
+</html>

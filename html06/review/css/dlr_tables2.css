@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML and CSS
+Tutorial 6
+Review Assignment
+
+Pages: 489-490
+Due Date: 10/15/17
+
+Tables Style Sheet
+Author: Rebecca Deal
+Date: 10/10/17
+
+Filename: dlr_tables2.css
+Path: /rebecca.deal/html06/review/css/dlr_tables2.css
+*/
+
+/* Table Styles */
+
+table.programs {
+  width: 100%;
+  border: 15px outset rgb(151, 151, 151);
+  border-collapse: collapse;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+table.programs tr {
+  height: 25px;
+}
+
+table.programs th, table.programs td {
+  border: 1px solid gray;
+  vertical-align: top;
+  padding: 5px;
+}
+
+/* Table Caption Styles */
+
+table.programs caption {
+  caption-side: bottom;
+  text-align: center;
+}
+
+/* Table Column Styles */
+
+col.timeColumn {
+  width: 10%;
+  background-color: rgb(215, 205, 151);
+}
+
+col.wDayColumns {
+  width: 11%;
+  background-color: rgb(236, 255, 211);
+}
+
+col.wEndColumns {
+  width: 17%;
+  background-color: rgb(255, 231, 255);
+}
+
+/* Table Header Styles */
+
+table.programs thead {
+  color: white;
+  background-color: rgb(105, 177, 60);
+}
+
+table.programs thead th:first-of-type {
+  background-color: rgb(153, 86, 7);
+}
+
+table.programs thead th:nth-of-type(7), table.programs thead th:nth-of-type(8) {
+  background-color: rgb(153, 0, 153);
+}
+
+/* Table Footer Styles */
+
+table.programs tfoot {
+  color: white;
+  background-color: black;
+}

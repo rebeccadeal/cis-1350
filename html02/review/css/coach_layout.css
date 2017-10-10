@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 2
+Review Assignment
+
+TSS Layout Styles
+Filename: tss_layout.css
+*/
+
+body {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1020px;
+	min-width: 640px;
+}
+
+body > header {
+	margin: 0;
+	padding: 0px;
+	width: 100%;
+	overflow: hidden;
+}
+
+body > header > img {
+	margin: 0px;
+	padding: 0px;
+}
+
+body > nav {
+	width: 20%;
+	float: left;
+	margin: 0 0 0 2%;
+}
+
+body > section#tss_coaches {
+	width: 76%;
+	float: left;
+	margin: 0 0 0 2%;
+}
+
+body > section#tss_coaches > aside {
+	float: right;
+	width: 50%;
+}
+
+body > section#tss_coaches > article.coach_bio img {
+	float: left;
+	width: 30%;
+	margin: 5px 20px 10px 0px;
+}
+
+article.coach_bio {
+	clear: left;
+}
+
+body > footer {
+	width: 100%;
+	clear: left;
+}

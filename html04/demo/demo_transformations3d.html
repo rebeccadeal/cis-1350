@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Tutorial Case
+
+   CSS3 3D Transformations Demo
+   Author: Patrick Carey
+   Date:   3/1/2015
+
+   Filename:         demo_transformations3d.htm
+   Supporting files: demo.gif, demo2.gif, filter.png
+-->
+
+<title>CSS3 3D Transformations Demo</title>
+<style type="text/css">
+/* use for all demo pages */
+   html       {height: 100%}
+   body       {background-color: white; background-image: url(images/demo2.gif); margin: 0px; 
+               width: 100%; height: 100%}
+   #demo_page {background-color: white; 
+               border-right: 5px solid rgb(0,0,128);
+               width: 900px; padding-bottom: 15px; height: 100%;
+               min-height: 100%; 
+			   position: relative;
+			   margin: 0px auto;
+			   height: 100%;}
+			   
+   * html #demo_page {height: 100%}
+
+   #demo_intro {width: 100%; position: relative; margin: 0px 10px}
+   #demo_intro table {margin: 0px; padding: 0px; border: 0px; width: 97%}
+   #demo_intro table td {vertical-align: bottom; padding-bottom: 5px}
+   #h2heading {color:yellow; background-image: url(demo.gif); letter-spacing: 0.5em; 
+               font-family: Arial, Helvetica, sans-serif; width: 97%; 
+               font-size: 1.5em; margin: 0px; text-align: right; 
+               border: 1px solid black}
+
+   #para      {font-size: 1em; border: 1px solid black; width: 97%;
+               background-color: ivory}
+   #para p    {margin: 8px}
+
+   #demo_container {position: relative; top: 10px; left: 0px; width: 100%;
+                    margin: 0px 10px}
+   #demo_footer {text-align: center; font-size: 8pt; border-top: 1px solid black; 
+                 margin: 25px 10px; width: 97%; clear: left; position: relative;
+                 top: 10px; left: 0px}
+   span.btitle {font-style: italic}
+
+/* styles specific to this demo */
+   #demo_container table {float: left; width: 440px}
+   #styleoptions {font-family: Arial, Helvetica, sans-serif; font-size: 0.8em}
+   input.mcell {width: 50px;}
+
+   #output {width: 510px; float: left; margin-bottom: 10px; margin-top: 10px;}
+   #filterimg {height: 200px; width: 143px; display: block; margin: 20px auto;
+               background-image: url(filter.png); border: 3px solid rgb(51, 51, 51);}
+
+   #preview {width: 100%; height: 250px; border: 1px solid black; font-family: serif; 
+             font-size: 100px; font-family: serif; padding: 5px;
+             text-align: center; line-height: 250px;}
+   #previewstyle {width: 100%; border: 1px solid black; font-family: monospace; padding: 5px; font-size: 0.9em;}
+   #demo_container h4 {color: white; background-color: black; margin-top: 0px; margin-bottom: 0px; width: 100%; 
+                       border: 1px solid black; padding: 5px; font-family: Arial, Helvetica, sans-serif}
+</style>
+
+<script type="text/javascript">
+var ptext="";
+var ftext="";
+var nf;
+
+function getPropStyle(proparray){
+   var root=document.documentElement;
+   for (var i=0; i<proparray.length; i++){
+      if (typeof root.style[proparray[i]]=="string"){ 
+         return proparray[i];
+      }
+   }
+}
+   function runTrans() {
+
+   nf=document.stylelist.Transform.value;
+   if (nf==99) ptext="";
+
+   else if (nf=="translate3d") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>offX (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offX' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label></tr>";
+   ptext+="<tr><td>offY (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offY' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label></td></tr>";
+   ptext+="<tr><td>offZ (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offZ' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+   else if (nf=="translateX") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>offX (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offX' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+   else if (nf=="translateY") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>offY (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offY' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }   
+   else if (nf=="translateZ") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>offZ (px):</td>";
+   ptext+="<td><label>-100px</label><input name='offZ' type='range' min='-100' max='100' step='10' onChange='applyTrans()' value='0' /><label>100px</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+
+   else if (nf=="rotate3d") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>x:</td>";
+   ptext+="<td><input name='x' onBlur='applyTrans()' value='0' /></td></tr>";
+   ptext+="<tr><td>y:</td>";
+   ptext+="<td><input name='y' onBlur='applyTrans()' value='0' /></td></tr>";
+   ptext+="<tr><td>z:</td>";
+   ptext+="<td><input name='z' onBlur='applyTrans()' value='0' /></td></tr>";
+   ptext+="<tr><td>angle:</td>";
+   ptext+="<td><label>-360deg</label><input name='angle' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+
+   else if (nf=="rotateX") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>angleX:</td>";
+   ptext+="<td><label>-360deg</label><input name='angleX' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+
+   else if (nf=="rotateY") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>angleY:</td>";
+   ptext+="<td><label>-360deg</label><input name='angleY' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+
+   else if (nf=="rotateZ") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>angleZ:</td>";
+   ptext+="<td><label>-360deg</label><input name='angleZ' type='range' min='-360' max='360' step='10' onChange='applyTrans()' value='0' /><label>360deg</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+  
+   ptext+="</table>";
+   }
+
+   else if (nf=="scale3d") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>x:</td>";
+   ptext+="<td><label>0</label><input name='x' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label></td></tr>";
+   ptext+="<tr><td>y:</td>";
+   ptext+="<td><label>0</label><input name='y' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label></td></tr>";
+   ptext+="<tr><td>z:</td>";
+   ptext+="<td><label>0</label><input name='z' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+
+   else if (nf=="scaleX") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>x:</td>";
+   ptext+="<td><label>0</label><input name='x' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+
+   else if (nf=="scaleY") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>y:</td>";
+   ptext+="<td><label>0</label><input name='y' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+
+   else if (nf=="scaleZ") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>z:</td>";
+   ptext+="<td><label>0</label><input name='z' type='range' min='0' max='3' step='0.1' onChange='applyTrans()' value='1' /><label>3</label></td></tr>";
+   ptext+="<tr><td colspan='2'><hr /></td></tr>";
+   ptext+="<tr><td>perspective:</td>";
+   ptext+="<td><label>50px</label><input name='persp' type='range' min='50' max='800' step='50' onChange='applyTrans()' value='300' /><label>800px</label></td></tr>";
+   ptext+="</table>";
+   }
+
+   else if (nf=="matrix3d") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr>"
+   ptext+="<td>m00:</td><td><input name='m00' onBlur='applyTrans()' value='1' class='mcell' /></td>";
+   ptext+="<td>m10:</td><td><input name='m10' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m20:</td><td><input name='m20' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m30:</td><td><input name='m30' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="</tr>";
+   ptext+="<tr>"
+   ptext+="<td>m01:</td><td><input name='m01' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m11:</td><td><input name='m11' onBlur='applyTrans()' value='1' class='mcell' /></td>";
+   ptext+="<td>m21:</td><td><input name='m21' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m31:</td><td><input name='m31' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="</tr>";
+   ptext+="<tr>"
+   ptext+="<td>m02:</td><td><input name='m02' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m12:</td><td><input name='m12' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m22:</td><td><input name='m22' onBlur='applyTrans()' value='1' class='mcell' /></td>";
+   ptext+="<td>m32:</td><td><input name='m32' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="</tr>";
+   ptext+="<tr>"
+   ptext+="<td>m03:</td><td><input name='m03' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m13:</td><td><input name='m13' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m23:</td><td><input name='m23' onBlur='applyTrans()' value='0' class='mcell' /></td>";
+   ptext+="<td>m33:</td><td><input name='m33' onBlur='applyTrans()' value='1' class='mcell' /></td>";
+   ptext+="</tr>";
+   ptext+="</table>";
+   }
+   document.getElementById("param").innerHTML=ptext;
+   applyTrans();
+}
+
+
+function applyTrans() {
+   previewObject=document.getElementById("filterimg");
+
+   if (nf=="translate3d") {
+      var toffX=document.stylelist.offX.value;
+      var toffY=document.stylelist.offY.value;
+      var toffZ=document.stylelist.offZ.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="translate3d("+toffX+"px, "+toffY+"px, "+toffZ+"px)";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="translateX") {
+      var toffX=document.stylelist.offX.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="translateX("+toffX+"px)";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="translateY") {
+      var toffY=document.stylelist.offY.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="translateY("+toffY+"px)";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="translateZ") {
+      var toffZ=document.stylelist.offZ.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="translateZ("+toffZ+"px)";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="rotate3d") {
+      var tx=document.stylelist.x.value;
+      var ty=document.stylelist.y.value;
+      var tz=document.stylelist.z.value;
+      var tangle=document.stylelist.angle.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="rotate3d("+tx+","+ty+","+tz+","+tangle+"deg)";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="rotateX") {
+      var tangleX=document.stylelist.angleX.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="rotateX("+tangleX+"deg)";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="rotateY") {
+      var tangleY=document.stylelist.angleY.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="rotateY("+tangleY+"deg)";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="rotateZ") {
+      var tangleZ=document.stylelist.angleZ.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="rotateZ("+tangleZ+"deg)";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="scale3d") {
+      var tx=document.stylelist.x.value;
+      var ty=document.stylelist.y.value;
+      var tz=document.stylelist.z.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="scale3d("+tx+","+ty+","+tz+")";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="scaleX") {
+      var tx=document.stylelist.x.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="scaleX("+tx+")";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="scaleY") {
+      var ty=document.stylelist.y.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="scaleY("+ty+")";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="scaleZ") {
+      var tz=document.stylelist.z.value;
+      var tpersp=document.stylelist.persp.value;
+      var stext="scaleZ("+tz+")";
+      var ptext="perspective("+tpersp+"px)";
+   }
+
+   else if (nf=="matrix3d") {
+      var tm00=document.stylelist.m00.value;
+      var tm01=document.stylelist.m01.value;
+      var tm02=document.stylelist.m02.value;
+      var tm03=document.stylelist.m03.value;
+      var tm10=document.stylelist.m10.value;
+      var tm11=document.stylelist.m11.value;
+      var tm12=document.stylelist.m12.value;
+      var tm13=document.stylelist.m13.value;
+      var tm20=document.stylelist.m20.value;
+      var tm21=document.stylelist.m21.value;
+      var tm22=document.stylelist.m22.value;
+      var tm23=document.stylelist.m23.value;
+      var tm30=document.stylelist.m30.value;
+      var tm31=document.stylelist.m31.value;
+      var tm32=document.stylelist.m32.value;
+      var tm33=document.stylelist.m33.value;
+      var stext="matrix3d("+tm00+","+tm01+","+tm02+","+tm03+","+tm10+","+tm11+","+tm12+","+tm13+","+tm20+","+tm21+","+tm22+","+tm23+","+tm30+","+tm31+","+tm32+","+tm33+")"
+      var ptext="";
+   }
+
+   var Prop=getPropStyle(['OTransform', 'MozTransform', 'WebkitTransform', 'msTransform', 'transform']);
+   sptext=ptext+" "+stext;
+
+   styletext="transform: "+sptext+";"
+   previewObject.style[Prop]=sptext;
+   document.getElementById("previewstyle").innerHTML=styletext;
+
+}
+
+</script>
+
+
+</head>
+
+
+<body>
+<form id="stylelist" name="stylelist">
+<div id="demo_page">
+
+<div id="demo_intro">
+   <table>
+   <tr><td style="width: 40%"><img src="images/cengage.jpg" alt="Course Technology Cengage Learning" /></td>
+       <td style="width: 60%; text-align:right; font-family: Arial, Helvetica, sans-serif; font-size: 1.2em">
+          New Perspectives on HTML5 and CSS3, 7th Edition<br />Tutorial 4
+   </td></tr>
+   </table>
+
+   <h2 id="h2heading">CSS3 3D Transformation Styles </h2>
+   <div id="para">
+      <p>The CSS3 3D transformation styles assume the existence of a <i>x</i>-axis that runs horizontally
+         across the page, a <i>y</i>-axis that run vertically, and a <i>z</i>-axis that runs straight out of
+         the page towards the eye of the reader. This demo presents several transformation styles that 
+         simulate the effect of altering a shape in three dimensions. The general syntax is:
+      </p>
+      <p><code>transform: <i>effect</i>(<i>params</i>)</code></p>
+      <p>where <i>effect</i> is the transformation function that will be applied to the 
+         object and <i>params</i> are any parameters required by the transformation. Most 3D transformations
+         also benefit from setting the perspective scale to simulate the effect of the object advancing
+         toward the user or receding to a vanishing  point. The lower the perspective value, the more
+         extreme the effect.
+      </p>
+      <p>To apply a transformation style, select one of the transformation types from the drop-down list
+         below and then enter your parameter values. Each time you change a parameter value, 
+         the transformation effect will be applied. The corresponding CSS style rule appears in the box below the 
+         transformed object.
+      </p>
+
+   </div>
+</div>
+
+<div id="demo_container">
+
+<table width="350">
+<tr><td valign="top" colspan="2">
+<h2>
+ CSS3 3D Transformations</h2>
+</td></tr>
+<tr>
+<td valign="top">Transformation</td>
+<td valign="top">
+<select name="Transform" onChange="runTrans()">
+   <option value="99">--- Select a CSS3 3D Transformation ---</option>
+   <option value="translate3d">translate3d</option>
+   <option value="translateX">translateX</option>
+   <option value="translateY">translateY</option>
+   <option value="translateZ">translateZ</option>
+   <option value="rotate3d">rotate3d</option>
+   <option value="rotateX">rotateX</option>
+   <option value="rotateY">rotateY</option>
+   <option value="rotateZ">rotateZ</option>
+   <option value="scale3d">scale3d</option>
+   <option value="scaleX">scaleX</option>
+   <option value="scaleY">scaleY</option>   
+   <option value="scaleZ">scaleZ</option>
+   <option value="matrix3d">matrix3d</option>
+</select>
+</td>
+<tr><td colspan="2"><hr /></td></tr>
+<tr><td colspan="2"><div id="param"></div></td></tr>
+</table>
+
+
+   <div id="output">
+
+      <h4>Preview</h4>
+
+      <div id="preview">
+         <div id="filterimg"></div>
+      </div>
+
+      <h4>Style</h4>
+  
+      <div id="previewstyle">
+         none
+      </div>
+
+   </div>
+</div>
+
+<div id="demo_footer">
+  Carey, P.
+  <span class="btitle">New Perspectives on HTML5 and CSS3, 7th Edition</span>,
+  Cengage Learning: Boston, 2015.
+</div>
+
+</div>
+</form>
+
+</body>
+</html>
+

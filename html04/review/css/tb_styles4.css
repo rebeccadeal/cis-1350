@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+@font-face {
+   font-family: Champagne;
+   src: url(../fonts/cac_champagne.woff) format('woff'),  url(../fonts/cac_champagne.ttf) format('ttf');
+}
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Review Assignment
+   
+   Individuals Layout and Typographical Style Sheet at Tree and Book
+   
+   Filename: tb_styles4.css
+
+*/
+
+html {
+   background-color: rgb(173, 135, 95);
+   color: rgb(51, 51, 51);
+   font-size: 12px;
+}
+
+/* Page Body Styles */
+
+body {
+   background-color: rgb(197, 170, 141);
+   font-family: Verdana, Geneva, Arial, sans-serif;
+   margin-left: auto;
+   margin-right: auto;
+   width: 960px;
+}
+
+/* Body Header Styles */
+
+body > header > img {
+   display: block;
+   width: 100%;
+}
+
+body > header > nav#topLinks {
+   background-color: rgb(51, 52, 45);
+   color: white;
+   line-height: 1.7em;
+   text-align: right;
+   padding: 5px 10px 5px 0px;
+}
+
+nav#topLinks a:link, nav#topLinks a:visited {
+   color: white;
+}
+
+nav#topLinks a:hover, nav#topLinks a:active {
+   color: rgb(248, 237, 212);
+}
+
+nav#mainLinks ul li {
+   background-color: rgb(83, 65, 41);
+   display: block;
+   float: left;
+   text-align: center;
+   width: 20%;
+}
+
+nav#mainLinks ul li a {
+   color: white;
+   display: block;
+   height: 2.5em;
+   text-align: center;
+   line-height: 2.5em;
+}
+
+nav#mainLinks a:link, nav#mainLinks a:visited {
+   color: white;
+}
+
+nav#mainLinks a:hover, nav#mainLinks a:active {
+   background-color: rgb(51, 51, 45);
+}
+
+/* Article  Styles */
+
+article {
+   clear: left;
+   width: 90%;
+   margin: 10px auto;
+   padding: 10px 20px;
+}
+
+article h1 {
+   font-family: Champagne, cursive;
+   font-size: 4em;
+   color: rgb(166, 129, 87);
+   text-align: center;
+}
+
+article p {
+   clear: both;
+   font-family: Baskerville, "Palatino Linotype", Palatino,  "Century Schoolbook", "Times New Roman", serif;
+   font-size: 1.6em;
+   margin-bottom: 20px;
+   text-align: center;
+}
+
+article a {
+   color: rgb(72, 45, 0);
+}
+
+article:after {
+   content: "";
+   display: table;
+   clear: both;
+}
+
+/* Footer Styles */
+footer {
+   background-color: rgb(72, 45, 0);
+   color: white;
+   font-size: 0.9em;
+   text-align: center;
+   padding: 25px;
+}
+
+/* Figure Box Styles */
+
+figure img {
+   display: block;
+   width: 100%;
+}
+
+figure figcaption {
+   font-size: 1.2em;
+   margin: 5px 0px;
+   text-align: center;
+}
+
+figure#figure1 {
+   margin: 10px auto;
+   padding-bottom: 10px;
+   width: 50%;
+}
+
+figure#figure2, figure#figure3 {
+   display: block;
+   float: left;
+   margin-left: 5%;
+   margin-right: 5%;
+   width: 40%;
+}
+
+figure#figure1 {
+   box-shadow: rgb(51, 51, 51) 0px 10px 25px;
+}
+
+figure#figure2 {
+   box-shadow: rgb(51, 51, 51) 1px 1px 5px, rgb(101, 101, 101) 10px 10px 25px;
+}
+
+figure#figure3 {
+   box-shadow: rgb(51, 51, 51) 1px -1px 5px, rgb(101, 101, 101) 10px -10px 25px;
+}

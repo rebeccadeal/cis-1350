@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 6
+Case Problem 2
+
+Pages: 492-494
+Due Date: 10/15/17
+
+Sudoku Style Sheet
+Author: Rebecca Deal
+Date: 10/10/17
+
+Filename: jpf_sudoku.css
+Path: /rebecca.deal/html06/case2/css/jpf_sudoku.css
+*/
+
+/* Table Styles */
+
+table.spuzzle {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 90%;
+}
+
+table.spuzzle td {
+  border: 5px outset gray;
+  width: 33.3%;
+}
+
+table.spuzzle th {
+  color: gray;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+/* NOTE: is it okay to include this to fix the spacing for the cells with letters A-I? */
+table.spuzzle tbody th {
+  height: 40px;
+}
+
+/* Inner Table Styles */
+
+table.subTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.subTable td {
+  box-shadow: inset 0 0 15px; /* NOTE: is the shadow supposed to be blue? */
+  border: 1px solid black;
+  color: blue;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle; /* NOTE: should I include this? */
+}
+
+table.spuzzle td.goldBox td {
+  background-color: rgb(228, 199, 42);
+}
+
+table.spuzzle td.greenBox td {
+  background-color: rgb(203, 229, 130);
+}

@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 5
+Tutorial Case
+
+Pages: 350-419
+Due Date: 10/8/17
+
+Author: Rebecca Deal
+Date: 10/3/17
+
+Filename: tf_flex.css
+Path: /rebecca.deal/html05/tutorial/css/tf_flex.css
+
+This file contains the flex styles used in
+the Trusted Friends Pre-K Classes page.
+*/
+
+/*
+================================================================================
+Base Flex Styles
+================================================================================
+*/
+
+body {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+header, footer {
+  width: 100%;
+}
+
+aside {
+  -webkit-flex: 1 1 120px;
+  flex: 1 1 120px;
+}
+
+section#main {
+  -webkit-flex: 3 1 361px;
+  flex: 3 1 361px;
+}
+
+section#topics {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+section#topics article {
+  -webkit-flex: 1 1 200px;
+  flex: 1 1 200px;
+}
+
+/*
+================================================================================
+Mobile Styles: 0 to 480px
+================================================================================
+*/
+
+@media only screen and (max-width: 480px) {
+
+  aside {
+    -webkit-order: 99;
+    order: 99;
+  }
+
+  footer {
+    -webkit-order: 100;
+    order: 100;
+  }
+
+}
+
+/*
+================================================================================
+Tablet and Desktop Styles: 481px and greater
+================================================================================
+*/
+
+@media only screen and (min-width: 481px) {
+
+  nav.horizontal ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+  }
+
+  nav.horizontal li {
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
+
+}

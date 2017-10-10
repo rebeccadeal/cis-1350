@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Tutorial Case
+
+   CSS3 Filters Demo
+   Author: Patrick Carey
+   Date:   3/1/2015
+
+   Filename:         demo_filters.htm
+   Supporting files: demo.gif, demo2.gif, filter.png
+-->
+
+<title>CSS3 Filters Demo</title>
+<style type="text/css">
+/* use for all demo pages */
+   html       {height: 100%}
+   body       {background-color: white; background-image: url(images/demo2.gif); margin: 0px; 
+               width: 100%; height: 100%}
+   #demo_page {background-color: white; 
+               border-right: 5px solid rgb(0,0,128);
+               width: 900px; padding-bottom: 15px; height: 100%;
+               min-height: 100%; 
+			   position: relative;
+			   margin: 0px auto;
+			   height: 100%;}
+			   
+   * html #demo_page {height: 100%}
+
+   #demo_intro {width: 100%; position: relative; margin: 0px 10px}
+   #demo_intro table {margin: 0px; padding: 0px; border: 0px; width: 97%}
+   #demo_intro table td {vertical-align: bottom; padding-bottom: 5px}
+   #h2heading {color:yellow; background-image: url(demo.gif); letter-spacing: 0.5em; 
+               font-family: Arial, Helvetica, sans-serif; width: 97%; 
+               font-size: 1.5em; margin: 0px; text-align: right; 
+               border: 1px solid black}
+
+   #para      {font-size: 1em; border: 1px solid black; width: 97%;
+               background-color: ivory}
+   #para p    {margin: 8px}
+
+   #demo_container {position: relative; top: 10px; left: 0px; width: 100%;
+                    margin: 0px 10px}
+   #demo_footer {text-align: center; font-size: 8pt; border-top: 1px solid black; 
+                 margin: 25px 10px; width: 97%; clear: left; position: relative;
+                 top: 10px; left: 0px}
+   span.btitle {font-style: italic}
+
+/* styles specific to this demo */
+   #demo_container table {float: left; width: 440px}
+   #styleoptions {font-family: Arial, Helvetica, sans-serif; font-size: 0.8em}
+
+
+   #output {width: 510px; float: left; margin-bottom: 10px; margin-top: 10px;}
+   #filterimg {height: 200px; width: 143px; display: block; position: absolute;
+               top: 30px; left: 100px; z-index: 99; outline: 4px solid rgb(101, 101, 101);
+               background-image: url(filter.png)}
+
+   #preview {width: 100%; height: 250px; border: 1px solid black; font-family: serif; 
+             font-size: 100px; font-family: serif; padding: 5px; position: relative;
+             text-align: center; line-height: 250px;}
+   #previewstyle {width: 100%; border: 1px solid black; font-family: monospace; padding: 5px; font-size: 0.9em;}
+   #demo_container h4 {color: white; background-color: black; margin-top: 0px; margin-bottom: 0px; width: 100%; 
+                       border: 1px solid black; padding: 5px; font-family: Arial, Helvetica, sans-serif}
+   label {font-size: 0.7em; margin: 10px 0px; text-align: center; width: 10px;}
+</style>
+
+<script type="text/javascript">
+var ptext="";
+var ftext="";
+var nf;
+
+function getPropStyle(proparray){
+   var root=document.documentElement;
+   for (var i=0; i<proparray.length; i++){
+      if (typeof root.style[proparray[i]]=="string"){ 
+         return proparray[i];
+      }
+   }
+}
+   function runTrans() {
+
+   nf=document.stylelist.filter.value;
+   if (nf==99) ptext="";
+   else if (nf=="blur") {
+   ptext="<table cellpadding='5'><tr><td>value:</td>";
+   ptext+="<td><label>0px</label><input name='fvalue' type='range' min='0' max='10' step='0.2' onChange='applyTrans()' value='0' /><label>10px</label>";
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="brightness") {
+   ptext="<table cellpadding='5'><tr><td>value:</td>";
+   ptext+="<td><label>0</label><input name='fvalue' type='range' min='0' max='2' step='0.1' onChange='applyTrans()' value='1' /><label>2</label>";   
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="contrast") {
+   ptext="<table cellpadding='5'><tr><td>value:</td>";
+   ptext+="<td><label>0</label><input name='fvalue' type='range' min='0' max='4' step='0.1' onChange='applyTrans()' value='1' /><label>4</label>";    
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="saturate") {
+   ptext="<table cellpadding='5'><tr><td>value:</td>";
+   ptext+="<td><label>0</label><input name='fvalue' type='range' min='0' max='4' step='0.1' onChange='applyTrans()' value='1' /><label>4</label>";     
+   ptext+="</td></tr></table>";
+   } 
+   else if (nf=="opacity") {
+   ptext="<table cellpadding='5'><tr><td>value:</td>";
+   ptext+="<td><label>0</label><input name='fvalue' type='range' min='0' max='1' step='0.1' onChange='applyTrans()' value='1' /><label>1</label>";      
+   ptext+="</td></tr></table>";
+   }  
+   else if (nf=="grayscale" || nf=="invert" || nf=="sepia") {
+   ptext="<table cellpadding='5'><tr><td>value:</td>";
+   ptext+="<td><label>0</label><input name='fvalue' type='range' min='0' max='1' step='0.1' onChange='applyTrans()' value='0' /><label>1</label>";    
+   ptext+="</td></tr></table>";
+   } 
+   else if (nf=="hue-rotate") {
+   ptext="<table cellpadding='5'><tr><td>angle:</td>";
+   ptext+="<td><label>0deg</label><input name='fvalue' type='range' min='0' max='360' step='5' onChange='applyTrans()' value='0' /><label>360deg</label>";    
+   ptext+="</td></tr></table>";
+   }
+   else if (nf=="drop-shadow") {
+   ptext="<table cellpadding='5'>"
+   ptext+="<tr><td>offX:</td><td><label>-30px</label><input name='offx' type='range' min='-30' max='30' step='1' onChange='applyTrans()' value='0' /><label>30px</label></td></tr>";
+   ptext+="<tr><td>offY:</td><td><label>-30px</label><input name='offy' type='range' min='-30' max='30' step='1' onChange='applyTrans()' value='0' /><label>30px</label></td></tr>";
+   ptext+="<tr><td>blur:</td><td><label>0px</label><input name='blurv' type='range' min='0' max='30' step='1' onChange='applyTrans()' value='0' /><label>30px</label></td></tr>";
+   ptext+="<tr><td>color:</td><td><input name='colorv' type='color' onChange='applyTrans()' /></td></tr>";   
+   ptext+="</table>";
+   }   
+   document.getElementById("param").innerHTML=ptext;
+   applyTrans();
+}
+
+
+function applyTrans() {
+   previewObject=document.getElementById("filterimg");
+   if (nf=="99") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);    
+      previewObject.style[Prop]="";
+      document.getElementById("previewstyle").innerHTML="none";
+   }
+   else if (nf=="blur") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']); 
+      var tValue=document.stylelist.fvalue.value;
+      var stext="blur("+tValue+"px)";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }  
+   else if (nf=="brightness") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="brightness("+tValue+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="contrast") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="contrast("+tValue+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="brightness") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="brightness("+tValue+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   } 
+      else if (nf=="grayscale") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="grayscale("+tValue+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }
+   else if (nf=="hue-rotate") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="hue-rotate("+tValue+"deg)";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }   
+   else if (nf=="invert") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="invert("+tValue+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }   
+   else if (nf=="opacity") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="opacity("+tValue+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }   
+   else if (nf=="saturate") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="saturate("+tValue+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }   
+   else if (nf=="sepia") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var tValue=document.stylelist.fvalue.value;
+      var stext="sepia("+tValue+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+      document.getElementById("previewstyle").innerHTML=styletext;
+   }  
+   else if (nf=="drop-shadow") {
+      var Prop=getPropStyle(['OFilter', 'MozFilter', 'WebkitFilter', 'filter']);  
+      var offX=document.stylelist.offx.value;
+      var offY=document.stylelist.offy.value;	
+      var blurv=document.stylelist.blurv.value;	
+	  var colorv=document.stylelist.colorv.value;	
+      var stext="drop-shadow("+offX+"px "+offY+"px "+blurv+"px "+colorv+")";
+      previewObject.style[Prop]=stext;
+      styletext="-o-filter: "+stext+"; -moz-filter: "+stext+"; -webkit-filter: "+stext+"; filter: "+stext+";"
+	  previewObject.setAttribute("style", styletext);
+      document.getElementById("previewstyle").innerHTML=styletext;	  
+   }   
+}
+
+</script>
+
+
+</head>
+
+
+<body>
+<form id="stylelist" name="stylelist">
+<div id="images/demo_page">
+
+<div id="demo_intro">
+   <table>
+   <tr><td style="width: 40%"><img src="cengage.jpg" alt="Course Technology Cengage Learning" /></td>
+       <td style="width: 60%; text-align:right; font-family: Arial, Helvetica, sans-serif; font-size: 1.2em">
+          New Perspectives on HTML5 and CSS3, 7th Edition<br />Tutorial 4
+   </td></tr>
+   </table>
+
+   <h2 id="h2heading">CSS3 Filter Styles </h2>
+   <div id="para">
+      <p>The CSS3 filter styles are used to modify the appearance of a page object by altering the color 
+      scheme of the object. You alter the color scheme by modifying properties such as the color hue, 
+      saturation, brightness, or contrast. To use a CSS3 filter, you apply the style:
+      </p>
+      <p><code>filter: <i>effect</i>(<i>params</i>)</code></p>
+      <p>where <i>effect</i> is the filter function that will be applied to the 
+         object and <i>params</i> represents any parameters required by the filter. You should also include
+         styles with browser extensions so that the filter will appear in all popular browsers.
+      </p>
+      <p>To apply a CSS3 filter, select one of the filter types from the drop-down list below and 
+      enter your parameter values. The filter effect will be automatically applied to the image 
+      in the Preview box. The corresponding CSS style rule is displayed in the Style box below.
+      </p>
+   </div>
+</div>
+
+<div id="demo_container">
+
+<table width="350">
+<tr><td valign="top" colspan="2">
+<h2>
+ CSS3 Filters</h2>
+</td></tr>
+<tr>
+<td valign="top">Filter</td>
+<td valign="top">
+<select name="filter" onChange="runTrans()">
+   <option value="99">--- Select a CSS3 Filter ---</option>
+   <option value="blur">blur</option>
+   <option value="brightness">brightness</option>
+   <option value="contrast">contrast</option>
+   <option value="drop-shadow">drop-shadow</option>
+   <option value="grayscale">grayscale</option>
+   <option value="hue-rotate">hue-rotate</option>
+   <option value="invert">invert</option>
+   <option value="opacity">opacity</option>
+   <option value="saturate">saturate</option>
+   <option value="sepia">sepia</option>
+</select>
+</td>
+<tr><td colspan="2"><hr /></td></tr>
+<tr><td colspan="2"><div id="param"></div></td></tr>
+</table>
+
+
+   <div id="output">
+
+      <h4>Preview</h4>
+
+      <div id="preview">
+         <div id="filterimg"></div>
+      </div>
+
+      <h4>Style</h4>
+  
+      <div id="previewstyle">
+         none
+      </div>
+
+   </div>
+</div>
+
+<div id="demo_footer">
+  Carey, P.
+  <span class="btitle">New Perspectives on HTML5 and CSS3, 7th Edition</span>,
+  Cengage Learning: Boston, 2015.
+</div>
+
+</div>
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 6
+Case Problem 2
+
+The Japanese Puzzle Factory General Style Sheet
+
+Filename: jpf_styles.css
+*/
+
+/* HTML and Body styles */
+
+html {
+  background: rgb(242, 228, 153);
+  font-family: Verdana, Geneva, sans-serif;
+  height: 100%;
+}
+
+body {
+  background-color: white;
+  box-shadow: rgb(51, 51, 51) 10px 0px 40px, rgb(51, 51, 51) -10px 0px 40px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  min-height: 100%;
+  margin: 0px auto;
+  min-width: 400px;
+  max-width: 1024px;
+  width: 100%;
+}
+
+/* Header styles */
+
+header {
+  background: gray;
+}
+
+header img#logoimg {
+  display: block;
+  width: 100%;
+}
+
+/* Navigation list styles */
+
+header nav ul {
+  width: 100%;
+}
+
+header nav ul li {
+  font-size: 1em;
+}
+
+header nav ul li a {
+  color: white;
+  display: block;
+  padding: 5px 20px;
+  width: 100%;
+}
+
+header nav ul li a:hover {
+  color: rgb(214, 237, 129);
+}
+
+a#navicon {
+  display: none;
+}
+
+/* Article Styles */
+
+article {
+  width: 30%;
+  padding: 20px;
+  float: left;
+}
+
+article h1 {
+  color: rgb(33, 88, 132);
+  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+  font-weight: normal;
+  font-size: 1.5em;
+  letter-spacing: 0.03em;
+  line-height: 1.2em;
+  margin-bottom: 20px;
+}
+
+article p {
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+/* Section Styles */
+
+section {
+  padding: 20px 0px;
+  float: left;
+  width: 70%;
+}
+
+/* Footer styles */
+
+footer {
+  clear: both;
+  color: white;
+  background: linear-gradient(to bottom, rgb(165, 143, 23),  rgb(71, 71, 71));
+  font-size: 0.9em;
+  font-style: normal;
+  width: 100%;
+}
+
+footer nav ul {
+  float: left;
+  padding: 30px;
+  width: 25%;
+}
+
+footer nav ul a {
+  color: white;
+}
+
+footer nav ul a:hover {
+  text-decoration: underline;
+}
+
+footer::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+/*
+================================================================================
+Mobile Styles: 0px to 640px
+================================================================================
+*/
+
+@media only screen and (max-width: 640px) {
+
+  a#navicon {
+    display: block;
+  }
+
+  header nav {
+    padding-bottom: 15px;
+  }
+
+  header nav ul {
+    display: none;
+  }
+
+  header nav ul li {
+    font-size: 1em;
+    line-height: 1.3em;
+    height: 1.3em;
+  }
+
+  a#navicon:hover+ul, header nav ul:hover {
+    display: block;
+  }
+
+  header img#logoimg {
+    width: 100%;
+  }
+
+  section, article {
+    width: 100%;
+  }
+
+}
+
+/*
+================================================================================
+Tablet and Desktop Styles: greater than 640px
+================================================================================
+*/
+
+@media only screen and (min-width: 641px) {
+
+  header nav ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+
+  header nav ul li {
+    -webkit-flex: 0 1 auto;
+    flex: 0 1 auto;
+  }
+
+}

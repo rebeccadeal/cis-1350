@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: Champagne;
+	src:	url(../fonts/cac_champagne.woff) format('woff'),
+				url(../fonts/cac_champagne.ttf) format('ttf');
+}
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 3
+Review Assignment
+
+Typographical Style Sheet for the Pandaisia Chocolates Monthly Specials
+
+Filename: pc_styles4.css
+*/
+
+html {
+	background-color: rgb(186, 136, 81);
+}
+
+/* Page Body Styles */
+body {
+	background-color: rgb(138, 97, 51);
+	font-family: Verdana, Geneva, Arial, sans-serif;
+}
+
+/* Horizontal Navigation List Styles */
+
+nav.horizontal a {
+	background-color: rgb(113, 86, 39);
+	font-family: Champagne, cursive;
+	font-size: 1.4em;
+	line-height: 1.8em;
+	text-align: center;
+}
+
+nav.horizontal a:link,
+nav.horizontal a:visited {
+	color: rgb(239, 220, 156);
+}
+
+nav.horizontal a:hover,
+nav.horizontal a:active {
+	background-color: rgb(71, 52, 29);
+}
+
+/* Article Styles */
+
+article > h1 {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 2.2em;
+	font-weight: normal;
+	margin: 0.5em 0;
+}
+
+article p {
+	line-height: 1.2;
+	margin-bottom: 2em;
+}
+
+/* Specials Styles */
+
+div.specials {
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+div.specials h1 {
+	font-family: Champagne, cursive;
+	font-size: 1.8em;
+	font-weight: normal;
+	margin: 0.3em 0;
+	text-align: center;
+}
+
+div.specials p {
+	font-size: 0.8em;
+	margin-bottom: 1em;
+	line-height: 1.2;
+}
+
+div.specials a {
+	color: rgb(186, 186, 156);
+}
+
+/* Award Styles */
+
+div#awardList {
+	background-color: rgb(172, 116, 30);
+	margin-top: 20px;
+}
+
+div#awardList h1 {
+	font-family: Champagne, cursive;
+	font-size: 2.5em;
+	font-weight: normal;
+	text-align: center;
+}
+
+div.awards p {
+	font-size: 0.8em;
+	text-align: center;
+	margin: 0.3em 0;
+}
+
+div.awards img {
+	display: block;
+	width: 100%;
+}
+
+/* Footer Styles */
+
+footer {
+	color: rgb(186, 186, 156);
+	background-color: rgb(71, 52, 29);
+	font-size: 0.9em;
+	padding: 10px 0px;
+	text-align: center;
+}

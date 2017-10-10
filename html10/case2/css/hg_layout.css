@@ -1,0 +1,332 @@
+@charset "utf-8";
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 10
+   Case Problem 2
+   
+
+   Harpe Gaming Style Sheet
+
+   Filename: hg_layout.css
+   
+*/
+
+
+/* HTML and Body Styles */
+
+html {
+   background: white;
+   font-family: Verdana, Geneva, sans-serif;
+   font-size: 12px;
+}
+
+body {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;   
+   background: white;
+   max-width: 1024px;
+   min-width: 420px;
+   margin: 0px auto;
+   border: 1px solid rgb(221, 221, 221);
+}
+
+p {
+   font-size: 1.2em;
+   line-height: 1.4em;
+   margin: 15px;
+}
+
+
+/* Top Navigation Styles */
+
+nav#top ul {
+   position: absolute;
+   top: 0px; right: 0px;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row nowrap;
+   flex-flow: row nowrap;
+   -webkit-justify-content: flex-end;
+   justify-content: flex-end;
+   -webkit-align-items: center;
+   align-items: center;
+   background-color: transparent;
+   height: 50px;
+}
+   
+nav#top ul li {
+   -webkit-flex: 0 0 120px;
+   flex: 0 0 120px;   
+   margin: 5px; 
+}
+
+nav#top ul li a {
+   color: rgb(61, 61, 61);
+   display: block;
+   font-size: 1.1em;
+   text-align: center;
+   padding: 50% 0%;
+}
+
+nav#top ul li a:hover, nav#top ul li a:active {
+   text-shadow: 0px 0px 2px rgb(172, 128, 84), 0px 0px 15px rgb(172, 128, 84);
+}
+
+/* Input Box Style */
+
+input {
+   width: 65%;
+   height: 40px;
+   display: block;
+   float: left;
+   padding: 1px 4px;
+   border-width: 2px;
+   font-size: 1.6em;
+   margin-left: 10px;
+}
+
+label {
+   display: block;
+   float: left;
+   height: 46px;
+}
+
+label img {
+   display: block;
+   height: 46px;
+   width: 46px;
+}
+
+
+/* Header Styles */
+
+body > header {
+   width: 100%;
+   position: relative;   
+}
+
+body > header > img {
+   margin-left: 10px;
+}
+
+body > header > div {
+   margin: 10px 0px;
+   height: 50px;
+}
+
+
+
+/* Middle Navigation Styles */
+
+nav#middle ul {
+   clear: left;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row nowrap;
+   flex-flow: row nowrap;
+   -webkit-justify-content: center;
+   justify-content: center;
+   -webkit-align-items: center;
+   align-items: center;
+   background-color: rgb(247, 193, 99);
+   height: 40px;
+}
+   
+nav#middle ul li {
+   -webkit-flex: 0 1 80px;
+   flex: 0 1 80px;   
+   margin: 10px;
+}
+
+nav#middle ul li a {
+   color: rgb(74, 50, 6);
+   display: block;
+   font-size: 1.2em;
+   text-align: center;
+   padding: 50% 0%;
+}
+
+nav#middle ul li a:hover, nav#middle ul li a:active {
+   color: rgb(211, 211, 211);
+   text-shadow: 0px 0px 2px black, 0px 0px 8px black;
+}
+
+
+/* Section Styles */
+
+section {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;   
+}
+
+section nav#left {
+   -webkit-flex: 0 0 180px;
+   flex: 0 0 180px;
+}
+
+section article {
+   -webkit-flex: 1 1 480px;
+   flex: 1 1 480px;    
+}
+
+section aside {
+   -webkit-flex: 1 1 300px;
+   flex: 1 1 300px;
+}
+
+/* Left Navigation Styles */
+
+nav#left {
+   background-color: rgb(231, 231, 231);
+   padding-left: 10px;
+}
+
+nav#left h1 {
+   font-size: 1.3em;
+   margin: 20px 0px 10px;
+}
+
+nav#left ul li {
+   line-height: 1.8em;
+}
+
+nav#left ul li:last-of-type {
+   margin-bottom: 25px;
+}
+
+nav#left ul li a {
+   color: rgb(61, 61, 61);
+}
+
+nav#left ul li a:hover {
+   text-decoration: underline;
+}
+
+/* Article Styles */
+
+article {
+   padding-left: 20px;
+}
+
+article img#gameImg {
+   float: left;
+   width: 40%;
+   margin: 0px 10px 10px 0px;
+}
+
+article h1 {
+   font-size: 3em;
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+   margin: 20px 0px 15px;
+   letter-spacing: 0.05em;
+   color: rgb(142, 92, 7);
+}
+
+article h2 {
+   font-size: 1.7em;
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+   margin: 0px 0px 15px 0px;
+}
+
+article table {
+   font-size: 1.1em;
+}
+
+article table th {
+   text-align: left;
+   padding: 1px;
+   vertical-align: top;
+   width: 40%;
+}
+
+article table td {
+   padding: 1px;
+   vertical-align: top;
+}
+
+article h3 {
+   font-size: 1.7em;
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif; 
+   clear: left;
+   color: rgb(168, 129, 58);
+   font-style: italic; 
+   padding-top: 30px; 
+}
+
+
+article p {
+   font-size: 1.4em;
+   margin: 10px;
+}
+
+/* Aside Styles */
+
+aside {
+   padding-left: 20px;
+}
+
+aside > h1 {
+   font-size: 2.5em;
+   color: rgb(151, 102, 13);
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+   margin: 20px 0px 10px;
+   text-align: center;
+}
+
+aside > h2 {
+   font-size: 1.3em;
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+   margin: 0px 0px 10px;  
+   text-align: center;
+}
+
+aside div.review {
+   background: rgba(255, 187, 24, 0.4);
+   margin: 15px 15px 5px 0px;
+   border: 4px solid rgb(151, 102, 13);
+   border-radius: 45px;
+}
+
+div.review h1 {
+   margin: 10px 35px;
+   text-align: center;
+   font-size: 1.2em;
+}
+
+div.review table {
+   margin: 15px 10px 5px 10px;
+}
+
+div.review table th {
+   text-align: left;
+   width: 100px;
+   vert-align: top;
+}
+
+div.review table td {
+   vertical-align: top;
+}
+
+div.review p {
+   font-size: 0.95em;
+   margin: 10px 20px;
+}
+
+/* Footer Styles */
+
+footer {
+   width: 100%;
+}
+
+footer p {
+   color: rgb(211, 211, 211);
+   font-size: 0.9em;
+   text-align: center;
+   background-color: rgb(75, 51, 6);
+   margin: 0px;
+   padding: 10px 0px;
+}

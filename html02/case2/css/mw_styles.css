@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 2
+Case Problem 2
+
+Bike the Mountains Tour Style Sheet
+Author: Rebecca Deal
+Date: 9/14/17
+
+Filename: mw_styles.css
+*/
+
+/* Structural Styles */
+
+html {
+  background-color: rgb(173, 189, 227);
+}
+
+body {
+  background-color: rgb(227, 210, 173);
+  font-family: 'Century Gothic', sans-serif;
+}
+
+body > footer {
+  background-color: rgb(208, 184, 109);
+  padding: 5px 0;
+}
+
+body > footer address {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.9em;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Heading Styles */
+
+h1, h2 {
+  font-weight: normal;
+}
+
+/* Navigation Styles */
+
+nav > ul {
+  list-style: none;
+  line-height: 2em;
+  font-size: 0.9em;
+}
+
+nav a:link,
+nav a:visited {
+  color: rgb(49, 53, 125);
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:active {
+  color: rgb(212, 35, 35);
+}
+
+/* Article Styles */
+
+article#tour_summary h1 {
+  font-size: 2.2em;
+  letter-spacing: 0.2em;
+}
+
+article#tour_summary p {
+  font-size: 1.1em;
+}
+
+article#tour_summary p:first-of-type::first-line {
+  font-variant: small-caps;
+  font-size: 1.2em;
+}
+
+/* Aside Styles */
+
+aside#tour_itinerary h1 {
+  font-size: 1.2em;
+}
+
+aside#tour_itinerary h2 {
+  font-size: 0.9em;
+}
+
+aside#tour_itinerary p {
+  font-size: 0.8em;
+}
+
+aside#tour_itinerary h2:nth-of-type(odd),
+aside#tour_itinerary p:nth-of-type(odd) {
+  color: rgb(79, 91, 40);
+}
+
+aside#tour_itinerary h2:nth-of-type(even),
+aside#tour_itinerary p:nth-of-type(even) {
+  color: rgb(81, 95, 175);
+}
+
+/* Blockquote Styles */
+
+blockquote {
+  background-color: rgb(173, 189, 227);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+blockquote p {
+  padding: 2.5px 10px;
+}

@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 10
+   Review Assignment
+
+   Lyman Hall Theater Event List style sheet
+
+   Filename: lht_events.css
+
+*/
+
+
+table#eventTable {
+   margin-top: 30px;
+   width: 100%;
+   font-size: 0.75em;
+   border-collapse: collapse;
+}
+
+table#eventTable td, table#eventTable th {
+   padding: 5px;
+   vertical-align: top;
+   border: 1px solid rgb(0, 127, 243);
+}
+
+table#eventTable caption {
+   font-size: 2em;
+   letter-spacing: 0.03em;
+   margin: 0px 0px 10px;
+   color: rgb(101, 101, 131);
+}
+
+table#eventTable th {
+   background-color: rgb(0, 78, 228);
+   color: white;
+   font-weight: normal;
+}
+
+table#eventTable tr:nth-of-type(even) {
+   background-color: rgb(182, 219, 248);
+}
+
+table#eventTable tr:nth-of-type(odd) {
+   background-color: rgb(255, 215, 190);
+}
+

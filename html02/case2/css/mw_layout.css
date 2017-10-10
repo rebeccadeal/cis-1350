@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 2
+Case Problem 2
+
+Mountain Wheels Layout Styles
+Filename: mw_layout.css
+*/
+
+body {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1020px;
+	min-width: 640px;
+}
+
+body > header > img {
+	width: 100%;
+}
+
+body > nav {
+	width: 20%;
+	float: left;
+}
+
+body > article#tour_summary {
+	width: 50%;
+	float: left;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+body > aside#tour_itinerary {
+	width: 24%;
+	float: left;
+	margin-right: 2%;
+}
+
+body > article#tour_summary > blockquote {
+	float: right;
+	width: 42%;
+	margin: 10px;
+}
+
+body > footer {
+	clear: left;
+	width: 100%;
+}
+
+/* Navigation List Styles */

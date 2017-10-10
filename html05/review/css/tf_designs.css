@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 5
+Review Assignment
+
+Filename: tf_designs.css
+
+This file design style used by all screen sizes for
+the Trusted Friends Parent Tips page.
+*/
+
+/*
+================================================================================
+Base styles used by All Screens
+================================================================================
+*/
+
+/* HTML and Body Styles */
+
+html {
+  background: url(../images/tf_back1.png) center center / cover no-repeat fixed;
+  height: 100%;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+}
+
+body {
+  box-shadow: rgb(51, 51, 51) 5px 0px 15px, rgb(51, 51, 51) -5px 0px 15px;
+  margin: 0px auto;
+  min-width: 320px;
+  max-width: 1024px;
+  width: 100%;
+}
+
+p {
+  line-height: 1.4em;
+  margin: 10px;
+}
+
+header, footer {
+  width: 100%;
+}
+
+/* Body Header Styles */
+
+body > header {
+  background: rgb(134, 176, 232);
+}
+
+body > header > img {
+  display: block;
+  width: 100%;
+}
+
+body > header > h1 {
+  background-color: rgb(52, 55, 52);
+  color: rgb(231, 255, 231);
+  font-size: 2em;
+  line-height: 2em;
+  text-align: center;
+}
+
+/* Header Navigation List Styles */
+
+body > header > nav.horizontal {
+  background-color: rgb(117, 140, 72);
+  clear: right;
+  height: auto;
+}
+
+body > header > nav.horizontal > ul {
+  padding: 20px;
+}
+
+body > header > nav.horizontal > ul > li {
+  font-size: 1.2em;
+  height: 30px;
+  text-transform: uppercase;
+  width: 140px;
+}
+
+body > header > nav.horizontal a {
+  color: rgb(239, 240, 224);
+}
+
+/* Left Section Styles */
+
+section#left {
+  background-color: rgb(221, 221, 221);
+  padding: 10px;
+}
+
+section#left h1 {
+  font-size: 1.5em;
+  margin: 0px 0px 15px 0px;
+  text-align: center;
+}
+
+section#left nav.vertical li {
+  background-color: rgb(207, 200, 101);
+  line-height: 30px;
+  margin: 5px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+section#left a {
+  color: rgb(51, 51, 51);
+}
+
+/* Right Section Styles */
+
+section#right {
+  background-color: rgb(221, 221, 221);
+}
+
+/* Tip Section Styles */
+
+section.tips {
+  background-color: rgb(245, 240, 142);
+  border: 3px solid rgb(91, 107, 90);
+  margin: 20px;
+}
+
+section.tips:first-of-type {
+  margin-bottom: 20px;
+}
+
+/* Section Article Styles */
+
+section.tips article header {
+  background-color: rgb(91, 107, 90);
+  color: rgba(236, 236, 207, 1.00);
+  padding: 10px 10px 0px 10px;
+}
+
+section.tips article header h1 {
+  font-size: 1.5em;
+}
+
+section.tips article header p {
+  font-size: 1.2em;
+}
+
+section.tips article ol {
+  list-style-type: disc;
+  padding-left: 30px;
+}
+
+section.tips article ol li {
+  margin-bottom: 20px;
+}
+
+/* Section Aside Styles */
+
+section.tips aside {
+  background-color: rgb(207, 200, 101);
+}
+
+section.tips aside h1 {
+  font-size: 1.4em;
+  margin: 15px 0px 0px 10px;
+}
+
+section.tips aside img {
+  float: right;
+  margin: 0px 0px 10px 10px;
+  width: 40%;
+  max-width: 140px;
+}
+
+/* Navicon Styles */
+
+a#navicon {
+  display: none;
+}
+
+/* Footer Styles */
+
+body > footer {
+  background-color: rgb(117, 140, 72);
+  font-size: 0.9em;
+  text-align: center;
+  padding: 10px 0px;
+}

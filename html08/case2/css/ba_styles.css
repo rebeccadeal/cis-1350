@@ -1,0 +1,189 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML and CSS
+   Tutorial 8
+   Case Problem 2
+
+   Big Apple Physics General Style Sheet
+  
+   Filename: ba_styles.css
+
+*/
+
+
+/* HTML and Body styles */
+
+html {
+   background: linear-gradient(to top left, rgb(219, 206, 196), rgb(119, 87, 56));   
+   font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+}
+
+body {
+   background: rgb(246, 238, 215);
+   border-left: double 8px rgb(51, 51, 51);
+   border-right: double 8px rgb(51, 51, 51);
+   box-shadow: 10px 0px 25px rgba(51, 51, 51, 0.7),
+               -10px 0px 25px rgba(51, 51, 51, 0.7);
+   margin: 0px auto;
+   width: 1020px;
+}
+
+/* Header Styles */
+
+header > img {
+   display: block;
+   margin: 0px;
+   width: 100%;
+}
+
+/* Navigation List Styles */
+header > nav {
+   background: rgb(44, 37, 21);
+   display: block;
+   margin: 0px;
+   height: 50px;
+   width: 100%;
+}
+
+header > nav > ul {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row nowrap;
+   flex-flow: row nowrap;
+   -webkit-justify-content: center;
+   justify-content: center;
+   -webkit-align-content: center;
+   align-content: center;
+   height: 50px;
+}
+
+header > nav > ul > li {
+   display: block;
+   font-size: 1.4em;
+   line-height: 50px;
+   height: 50px;
+}
+
+header > nav > ul > li > a {
+   display: block;
+   color: rgb(253, 240, 133);
+   padding: 0px 15px;   
+}
+
+/* Article Styles */
+
+article {
+   color: rgb(81, 81, 81);
+   margin: 10px 30px;
+}
+
+article h1 {
+   font-size: 1.7em;
+   letter-spacing: 0.2em;
+   font-variant:small-caps;
+}
+
+article p {
+   line-height: 1.2em;
+   font-size: 1.2em;
+   margin: 15px 5px;
+}
+
+article code {
+   background: rgba(51, 51, 51, 0.1);
+   display: block;
+   line-height: 1.2em;
+   font-size: 1.5em;
+   margin: 10px 0px 10px 25px;
+   padding: 5px;
+}
+
+article code var {
+   font-style: italic;
+}
+
+
+/* Animation Box Styles */
+
+#animBox {
+   background: rgb(145, 122, 70);   
+   position: relative;
+   height: 200px;
+   overflow: hidden;
+   margin: 20px auto;
+   width: 900px;   
+}
+
+img.ballImg {
+   position: absolute;
+}
+
+img#redBall {
+   left: 0px;
+   top: 30px; 
+}
+
+img#blueBall {
+   right: 0px;
+   top: 50px;
+}
+
+div.animText {
+   background: rgba(51, 51, 51, 0.6);   
+   position: absolute;
+   font-size: 1.4em;
+   font-family: sans-serif;
+   line-height: 1.4em;
+   text-align: center;   
+}
+
+div#redSpeed1, div#redSpeed2 {
+   left: 0px;
+   bottom: 0px;
+   color: rgb(255, 151, 151);
+   width: 100px;
+}
+
+div#redSpeed1, div#blueSpeed1 {
+   opacity: 1;
+}
+
+div#blueSpeed1, div#blueSpeed2 {
+   right: 0px;
+   bottom: 0px;
+   color: rgb(151, 151, 255);
+   width: 100px;
+}
+
+div#redSpeed2, div#blueSpeed2 {
+   opacity: 0;
+}
+
+div#momentum {
+   bottom: 0px;
+   left: 300px;
+   color: rgb(253, 240, 133);
+   width: 300px;
+}
+
+
+/* Footer Styles */
+
+footer {
+   background: rgba(51, 51, 51, 0.6);
+   color: rgba(255, 255, 255, 0.8);
+   text-align: right;
+   height: 30px;
+   line-height: 30px;
+   padding-right: 15px;
+   width: 100%;
+   margin-top: 25px;
+}
+
+footer a {
+   margin: 0px 5px;
+   color: rgb(253, 240, 133);
+   text-decoration: none;
+}
+

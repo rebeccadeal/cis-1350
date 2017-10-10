@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Tutorial Case
+
+   CSS Radial Gradients Demo
+   Author: Patrick Carey
+   Date:   3/1/2015
+
+   Filename:         demo_linear_gradients.htm
+   Supporting files: demo.gif, demo2.gif
+-->
+<title>CSS Demo Radial  Gradient Style</title>
+<style type="text/css">
+/* use for all demo pages */
+   html       {height: 100%}
+   body       {background-color: white; background-image: url(images/demo2.gif); margin: 0px; 
+               width: 100%; height: 100%}
+   #demo_page {background-color: white; 
+               border-right: 5px solid rgb(0,0,128);
+               width: 900px; padding-bottom: 15px; height: 100%;
+               min-height: 100%; 
+			   position: relative;
+			   margin: 0px auto;
+			   height: 100%;}
+			   
+   * html #demo_page {height: 100%}
+
+   #demo_intro {width: 100%; position: relative; margin: 0px 10px}
+   #demo_intro table {margin: 0px; padding: 0px; border: 0px; width: 97%}
+   #demo_intro table td {vertical-align: bottom; padding-bottom: 5px}
+   #h2heading {color:yellow; background-image: url(demo.gif); letter-spacing: 0.5em; 
+               font-family: Arial, Helvetica, sans-serif; width: 97%; 
+               font-size: 1.5em; margin: 0px; text-align: right; 
+               border: 1px solid black}
+
+   #para      {font-size: 1em; border: 1px solid black; width: 97%;
+               background-color: ivory}
+   #para p    {margin: 8px}
+
+   #demo_container {position: relative; top: 10px; left: 0px; width: 100%;
+                    margin: 0px 10px}
+   #demo_footer {text-align: center; font-size: 8pt; border-top: 1px solid black; 
+                 margin: 25px 10px; width: 97%; clear: left; position: relative;
+                 top: 10px; left: 0px}
+   span.btitle {font-style: italic}
+
+/* styles specific to this demo */
+   #demo_container table {float: left; width: 440px}
+   #styleoptions {font-family: Arial, Helvetica, sans-serif; font-size: 0.8em}
+   th, td {vertical-align: top;}
+   input.preview {background-color: white;}
+   input.red {color: black; background-color: rgb(255, 155, 155); text-align: right}
+   input.green {color: black; background-color: rgb(155, 255, 155); text-align: right}
+   input.blue {color: black; background-color: rgb(155, 155, 255); text-align: right}
+
+   #output {display: block; float: left; width: 65%; margin: 10px auto;}
+
+   #preview {width: 100%; height: 250px; border: 1px solid black; 
+             padding: 5px;
+   }
+   #previewstyle {width: 100%; border: 1px solid black; font-family: monospace; padding: 5px; font-size: 0.9em;}
+   #demo_container h4 {color: white; background-color: black; margin-top: 0px; margin-bottom: 0px; width: 100%; 
+                       border: 1px solid black; padding: 5px; font-family: Arial, Helvetica, sans-serif}
+</style>
+
+<script type="text/javascript">
+
+function gVS(fid) {
+   var fIndex=document.forms[0].elements[fid].selectedIndex;
+   var fVal=document.forms[0].elements[fid].options[fIndex].value;
+   return fVal;
+}
+
+function gV(fid) {
+   var fVal=document.getElementById(fid).value;
+   return fVal;
+}
+
+function setstyles() {
+   styletable=document.stylelist;
+   previewObject=document.getElementById("preview");
+
+   var rgtext="radial-gradient(";
+
+   var shapesizeposition="";
+   
+   if (gVS("shape")!="" || gVS("size")!="" || gV("sizex")!="" || gV("sizey")!="" || gVS("x1p")!="" || gVS("y1p")!="" || gV("x1")!="" || gV("y1")!=="") {
+   
+      if (gVS("shape")!="" || gVS("size")!="") {		 
+         if (gVS("shape")!="") shapesizeposition=gVS("shape")+" ";
+         if (gVS("size")!="") shapesizeposition+=gVS("size")+" ";
+	  } else {	  
+         if (gV("sizex")!="") {
+            shapesizeposition+=gV("sizex");
+            if (gVS("sizexunit")=="") {shapesizeposition+="px ";} else {shapesizeposition+=gVS("sizexunit")+" ";}
+         }
+         if (gV("sizey")!="") {
+            shapesizeposition+=gV("sizey");
+            if (gVS("sizeyunit")=="") {shapesizeposition+="px ";} else {shapesizeposition+=gVS("sizeyunit")+" ";}
+         }
+      }
+	  
+	  if (gVS("x1p")!="" || gVS("y1p")!="" || gV("x1")!="" || gV("y1")!="") {
+	     shapesizeposition+="at ";
+         if (gVS("x1p")!="" || gVS("y1p")!="") {
+         shapesizeposition+=gVS("x1p")+" "+gVS("y1p")+" ";
+         } else {
+            if (gV("x1")!="") {
+               shapesizeposition+=gV("x1");
+               if (gVS("x1unit")=="") {shapesizeposition+="px ";} else {shapesizeposition+=gVS("x1unit")+" ";}
+            }
+            if (gV("y1")!="") {
+               shapesizeposition+=gV("y1");
+               if (gVS("y1unit")=="") {shapesizeposition+="px ";} else {shapesizeposition+=gVS("y1unit")+" ";}
+            }
+         }
+	  }
+	  
+	  shapesizeposition+=", ";
+   }
+	  
+   rgtext+=shapesizeposition
+	  
+
+    if (stylelist.use1.checked) {
+      rgtext+=document.getElementById("color1").value;
+      if (gV("p1")!="") {
+         if (gVS("punit1")!="") rgtext+=" "+gV("p1")+gVS("punit1")
+         else rgtext+=" "+gV("p1")+"px";
+      }
+   }
+
+   if (stylelist.use2.checked) {
+      rgtext+=", "+document.getElementById("color2").value;
+      if (gV("p2")!="") {
+         if (gVS("punit2")!="") rgtext+=" "+gV("p2")+gVS("punit2")
+         else rgtext+=" "+gV("p2")+"px";
+      }  
+   }
+   
+   if (stylelist.use3.checked) {
+      rgtext+=", "+document.getElementById("color3").value;
+      if (gV("p3")!="") {
+         if (gVS("punit3")!="") rgtext+=" "+gV("p3")+gVS("punit3")
+         else rgtext+=" "+gV("p3")+"px";
+      }  
+   }
+
+   if (stylelist.use4.checked) {
+      rgtext+=", "+document.getElementById("color4").value;
+      if (gV("p4")!="") {
+         if (gVS("punit4")!="") rgtext+=" "+gV("p4")+gVS("punit4")
+         else rgtext+=" "+gV("p4")+"px";
+      } 
+   }   
+
+   if (stylelist.use5.checked) {
+      rgtext+=", "+document.getElementById("color5").value;
+      if (gV("p5")!="") {
+         if (gVS("punit5")!="") rgtext+=" "+gV("p5")+gVS("punit5")
+         else rgtext+=" "+gV("p5")+"px";
+      }
+   }
+
+
+   rgtext+=")";
+   stext="background: "+rgtext+"; ";
+
+   stext2="background: "+rgtext+";";
+
+
+   previewObject.setAttribute("style", stext);
+
+   document.getElementById("previewstyle").innerHTML=stext2; 
+}
+
+</script>
+
+</head>
+
+<body>
+<form id="stylelist" name="stylelist">
+<div id="demo_page">
+
+<div id="demo_intro">
+   <table>
+   <tr><td style="width: 40%"><img src="images/cengage.jpg" alt="Course Technology Cengage Learning" /></td>
+       <td style="width: 60%; text-align:right; font-family: Arial, Helvetica, sans-serif; font-size: 1.2em">
+          New Perspectives on HTML5 and CSS3, 7th Edition<br />Tutorial 4
+   </td></tr>
+   </table>
+
+   <h2 id="h2heading">Radial Gradients </h2>
+   <div id="para">
+      <p>This demo shows how to create a background gradient using the CSS3 <code>radial-gradient()</code>
+         function. The syntax of the function is:
+      </p>
+      <p>
+         <code>radial-gradient(<i>shape size</i> at <i>position</i>, <i>color-stop1</i>, <i>color-stop2</i> ...)</code>
+      </p>
+      <p>where <i>shape</i> is the shape of the gradient (<code>circle</code> or <code>ellipse</code>), 
+	     <i>size</i> is the size of the gradient as measured from the the center point, <i>position</i> determines
+		 the center point, and <i>color-stop</i> are the colors and positions of each
+         color in the gradient. If no color stops are specified, the colors are even distributed across the
+         object background.
+      </p>
+      <p>To use the demo, select the shape and size from the list boxes or specify the size from the
+	     input boxes. Note that you can only select one shape/size option. Select the center position using
+		 the drop-down list boxes or the input boxes. Once again you can only select one method of
+		 positioning. Finally select the colors and stop position of each color. Any omitted
+		 parameter values will assume their default values. Up to 
+         five different colors can be specified. You must specify at least two color values. Click the 
+		 checkmark box next to the colors to be placed in the gradient.
+      </p>
+    </div>
+</div>
+
+<div id="demo_container">
+
+   <table id="styleoptions">
+    <tr>
+      <td>
+          Shape: 
+      </td>
+      <td>
+          <select name="shape" id="shape" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="ellipse">ellipse</option>
+             <option value="circle">circle</option>
+          </select>
+      </td>
+   </tr>
+    <tr>
+      <td>
+          Size: 
+      </td>
+      <td>
+          <select name="size" id="size" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="closest-side">closest-side</option>
+             <option value="closest-corner">closest-corner</option>
+             <option value="farthest-side">farthest-side</option>
+             <option value="farthest-corner">farthest-corner</option>
+          </select>
+          <br /><br />
+          or in place of the shape and size keywords, <br />
+          specify the size of the radial gradient using <br />pixels or percentages
+          <br /><br />
+          ( <input name="sizex" id="sizex" size="3" onblur="setstyles()" />
+          <select name="sizexunit" id="sizexunit" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+          , 
+          <input name="sizey" id="sizey" size="3" onblur="setstyles()" />
+          <select name="sizeyunit" id="sizeyunit" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select> )
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>   
+   <tr>
+      <td>Position:</td>
+      <td><select name="x1p" id="x1p" onchange="setstyles()">
+             <option value=""></option>
+             <option value="left">left</option>
+             <option value="center">center</option>
+             <option value="right ">right</option>
+          </select>
+          <select name="y1p" id="y1p" onchange="setstyles()">
+             <option value=""></option>
+             <option value="top">top</option>
+             <option value="center">center</option>
+             <option value="bottom">bottom</option>
+          </select>
+          <br /><br />
+          or in place of the keywords, specify the center using <br />pixels or percentages
+          <br /><br />
+          ( <input name="x1" id="x1" size="3" onblur="setstyles()" />
+          <select name="x1unit" id="x1unit" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select> , 
+          <input name="y1" id="y1" size="3" onblur="setstyles()" />
+          <select name="y1unit" id="y1unit" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select> ) 
+      </td>
+    </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 1</td>
+      <td><input type="checkbox" name="use1" onclick="setstyles()"/> <input type="color" name="color1" id="color1" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p1" id="p1" size="3" onblur="setstyles()" />
+          <select name="punit1" id="punit1"onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 2</td>
+      <td><input type="checkbox" name="use2" onclick="setstyles()"/> <input type="color" name="color2" id="color2" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p2" id="p2" size="3" onblur="setstyles()" />
+          <select name="punit2" id="punit2"onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 3</td>
+      <td><input type="checkbox" name="use3" onclick="setstyles()"/> <input type="color" name="color3" id="color3" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p3" id="p3" size="3" onblur="setstyles()" />
+          <select name="punit3" id="punit3" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 4</td>
+      <td><input type="checkbox" name="use4" onclick="setstyles()"/> <input type="color" name="color4" id="color4" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p4" id="p4" size="3" onblur="setstyles()" />
+          <select name="punit4" id="punit4" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><hr /></td>
+   </tr>
+   <tr>
+      <td>Color 5</td>
+      <td><input type="checkbox" name="use5" onclick="setstyles()"/> <input type="color" name="color5" id="color5" value="transparent" onChange="setstyles()" />
+      </td>
+   </tr>
+   <tr>
+      <td>Color-Stop</td>
+      <td><input name="p5" id="p5" size="3" onblur="setstyles()" />
+          <select name="punit5" id="punit5" onchange="setstyles()" >
+             <option value=""></option>
+             <option value="px">px</option>
+             <option value="%">%</option>
+          </select>
+      </td>
+   </tr>
+   </table>
+
+   <div id="output">
+
+      <h4>Preview</h4>
+
+      <div id="preview">
+      </div>
+
+      <h4>Style</h4>
+  
+      <div id="previewstyle">
+         none
+      </div>
+
+   </div>
+</div>
+
+<div id="demo_footer">
+  Carey, P.
+  <span class="btitle">New Perspectives on HTML5 and CSS3, 7th Edition</span>,
+  Cengage Learning: Boston, 2015.
+</div>
+
+</div>
+</form>
+
+</body>
+</html>
+
+

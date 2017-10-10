@@ -1,0 +1,13 @@
+New Perspectives on HTML and CSS, 7th Edition
+Regular Expression Patterns
+Tutorial 7
+Tutorial Case
+=============================================
+
+
+Postal Code Regular Expression
+^\d{5}(-\d{4})?$
+
+
+Phone Number Regular Expression
+^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$

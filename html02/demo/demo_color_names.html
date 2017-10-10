@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 3
+   Tutorial Case
+
+   Color Names Demo
+   Author: Patrick Carey
+   Date:   3/1/2014
+
+   Filename:         demo_color_names.html
+   Supporting files: demo.gif
+-->
+<title>Color Names Demo</title>
+<style type="text/css">
+/* use for all demo pages */
+   html       {height: 100%}
+   body       {background-color: white; background-image: url(images/demo2.gif); margin: 0px auto; 
+               width: 100%; min-height: 100%;}
+   #demo_page {background-color: white; 
+               border-right: 5px solid rgb(0,0,128);
+               width: 900px; padding-bottom: 15px; height: 100%;
+               min-height: 100%; 
+			   position: relative;
+			   margin: 0px auto;
+			   height: 100%;}
+
+   #demo_intro {width: 100%; position: relative; margin: 0px 10px}
+   #demo_intro table {margin: 0px; padding: 0px; border: 0px; width: 97%}
+   #demo_intro table td {vertical-align: bottom; padding-bottom: 5px}
+   #h2heading {color:yellow; background-image: url(demo.gif); letter-spacing: 0.75em; 
+               font-family: Arial, Helvetica, sans-serif; width: 97%; 
+               font-size: 1.5em; margin: 0px; text-align: right; 
+               border: 1px solid black}
+
+   #para      {font-size: 1em; border: 1px solid black; width: 97%;
+               background-color: ivory}
+   #para p    {margin: 8px}
+
+   #demo_container {position: relative; top: 10px; left: 0px; width: 100%;
+                    margin: 0px 10px}
+   #demo_footer {text-align: center; font-size: 0.8em; border-top: 1px solid black; 
+                 margin: 25px 10px; width: 97%}
+   span.btitle {font-style: italic}
+
+
+/* styles specific to this demo */
+   #demo_container {font-family: 'Century Gothic', sans-serif}
+   #tableleft {margin: 0 auto; width: 94%}
+   #demo_container table {width: 90%; margin: 0 auto; font-size: 1.1em; border-collapse: collapse}
+   #demo_container td {border: 1px solid black; padding-left: 5px}
+   #demo_container th {border: 1px solid black; background-color: ivory}
+   #tableleft tr td:first-of-type {text-align: left;}
+   #tableleft tr td {text-align: center;}
+   
+   
+</style>
+
+<script type="text/javascript">
+var cnames = new Array(140); 
+var cvalues = new Array(140); 
+var chex = new Array(140);
+var chsl = new Array(140);
+cnames[1]="aliceblue";  cvalues[1]="(240, 248, 255)"; chex[1]="#F0F8FF"; chsl[1]="(208,100.0%,97.1%)";
+cnames[2]="antiquewhite";  cvalues[2]="(250, 235, 215)"; chex[2]="#FAEBD7"; chsl[2]="(34,77.8%,91.2%)";
+cnames[3]="aqua";  cvalues[3]="(0, 255, 255)"; chex[3]="#00FFFF"; chsl[3]="(180,100.0%,50.0%)";
+cnames[4]="aquamarine";  cvalues[4]="(127, 255, 212)"; chex[4]="#7FFFD4"; chsl[4]="(160,100.0%,74.9%)";
+cnames[5]="azure";  cvalues[5]="(240, 255, 255)"; chex[5]="#F0FFFF"; chsl[5]="(180,100.0%,97.1%)";
+cnames[6]="beige";  cvalues[6]="(245, 245, 220)"; chex[6]="#F5F5DC"; chsl[6]="(60,55.6%,91.2%)";
+cnames[7]="bisque";  cvalues[7]="(255, 228, 196)"; chex[7]="#FFE4C4"; chsl[7]="(33,100.0%,88.4%)";
+cnames[8]="black";  cvalues[8]="(0, 0, 0)"; chex[8]="#000000"; chsl[8]="(0,0.0%,0.0%)";
+cnames[9]="blanchedalmond";  cvalues[9]="(255, 235, 205)"; chex[9]="#FFEBCD"; chsl[9]="(36,100.0%,90.2%)";
+cnames[10]="blue";  cvalues[10]="(0, 0, 255)"; chex[10]="#0000FF"; chsl[10]="(240,100.0%,50.0%)";
+cnames[11]="blueviolet";  cvalues[11]="(138, 43, 226)"; chex[11]="#8A2BE2"; chsl[11]="(271,75.9%,52.7%)";
+cnames[12]="brown";  cvalues[12]="(165, 42, 42)"; chex[12]="#A52A2A"; chsl[12]="(0,59.4%,40.6%)";
+cnames[13]="burlywood";  cvalues[13]="(222, 184, 135)"; chex[13]="#DEB887"; chsl[13]="(34,56.9%,70.0%)";
+cnames[14]="cadetblue";  cvalues[14]="(95, 158, 160)"; chex[14]="#5F9EA0"; chsl[14]="(182,25.5%,50.0%)";
+cnames[15]="chartreuse";  cvalues[15]="(127, 255, 0)"; chex[15]="#7FFF00"; chsl[15]="(90,100.0%,50.0%)";
+cnames[16]="chocolate";  cvalues[16]="(210, 105, 30)"; chex[16]="#D2691E"; chsl[16]="(25,75.0%,47.1%)";
+cnames[17]="coral";  cvalues[17]="(255, 127, 80)"; chex[17]="#FF7F50"; chsl[17]="(16,100.0%,65.7%)";
+cnames[18]="cornflowerblue";  cvalues[18]="(100, 149, 237)"; chex[18]="#6495ED"; chsl[18]="(219,79.2%,66.1%)";
+cnames[19]="cornsilk";  cvalues[19]="(255, 248, 220)"; chex[19]="#FFF8DC"; chsl[19]="(48,100.0%,93.1%)";
+cnames[20]="crimson";  cvalues[20]="(220, 20, 60)"; chex[20]="#DC143C"; chsl[20]="(348,83.3%,47.1%)";
+cnames[21]="cyan";  cvalues[21]="(0, 255, 255)"; chex[21]="#00FFFF"; chsl[21]="(180,100.0%,50.0%)";
+cnames[22]="darkblue";  cvalues[22]="(0, 0, 139)"; chex[22]="#00008B"; chsl[22]="(240,100.0%,27.3%)";
+cnames[23]="darkcyan";  cvalues[23]="(0, 139, 139)"; chex[23]="#008B8B"; chsl[23]="(180,100.0%,27.3%)";
+cnames[24]="darkgoldenrod";  cvalues[24]="(184, 134, 11)"; chex[24]="#B8860B"; chsl[24]="(43,88.7%,38.2%)";
+cnames[25]="darkgray";  cvalues[25]="(169, 169, 169)"; chex[25]="#A9A9A9"; chsl[25]="(0,0.0%,66.3%)";
+cnames[26]="darkgreen";  cvalues[26]="(0, 100, 0)"; chex[26]="#006400"; chsl[26]="(120,100.0%,19.6%)";
+cnames[27]="darkgrey";  cvalues[27]="(169, 169, 169)"; chex[27]="#A9A9A9"; chsl[27]="(0,0.0%,66.3%)";
+cnames[28]="darkkhaki";  cvalues[28]="(189, 183, 107)"; chex[28]="#BDB76B"; chsl[28]="(56,38.3%,58.0%)";
+cnames[29]="darkmagenta";  cvalues[29]="(139, 0, 139)"; chex[29]="#8B008B"; chsl[29]="(300,100.0%,27.3%)";
+cnames[30]="darkolivegreen";  cvalues[30]="(85, 107, 47)"; chex[30]="#556B2F"; chsl[30]="(82,39.0%,30.2%)";
+cnames[31]="darkorange";  cvalues[31]="(255, 140, 0)"; chex[31]="#FF8C00"; chsl[31]="(33,100.0%,50.0%)";
+cnames[32]="darkorchid";  cvalues[32]="(153, 50, 204)"; chex[32]="#9932CC"; chsl[32]="(280,60.6%,49.8%)";
+cnames[33]="darkred";  cvalues[33]="(139, 0, 0)"; chex[33]="#8B0000"; chsl[33]="(0,100.0%,27.3%)";
+cnames[34]="darksalmon";  cvalues[34]="(233, 150, 122)"; chex[34]="#E9967A"; chsl[34]="(15,71.6%,69.6%)";
+cnames[35]="darkseagreen";  cvalues[35]="(143, 188, 143)"; chex[35]="#8FBC8F"; chsl[35]="(120,25.1%,64.9%)";
+cnames[36]="darkslateblue";  cvalues[36]="(72, 61, 139)"; chex[36]="#483D8B"; chsl[36]="(248,39.0%,39.2%)";
+cnames[37]="darkslategray";  cvalues[37]="(47, 79, 79)"; chex[37]="#2F4F4F"; chsl[37]="(180,25.4%,24.7%)";
+cnames[38]="darkslategrey";  cvalues[38]="(47, 79, 79)"; chex[38]="#2F4F4F"; chsl[38]="(180,25.4%,24.7%)";
+cnames[39]="darkturquoise";  cvalues[39]="(0, 206, 209)"; chex[39]="#00CED1"; chsl[39]="(181,100.0%,41.0%)";
+cnames[40]="darkviolet";  cvalues[40]="(148, 0, 211)"; chex[40]="#9400D3"; chsl[40]="(282,100.0%,41.4%)";
+cnames[41]="deeppink";  cvalues[41]="(255, 20, 147)"; chex[41]="#FF1493"; chsl[41]="(328,100.0%,53.9%)";
+cnames[42]="deepskyblue";  cvalues[42]="(0, 191, 255)"; chex[42]="#00BFFF"; chsl[42]="(195,100.0%,50.0%)";
+cnames[43]="dimgray";  cvalues[43]="(105, 105, 105)"; chex[43]="#696969"; chsl[43]="(0,0.0%,41.2%)";
+cnames[44]="dimgrey";  cvalues[44]="(105, 105, 105)"; chex[44]="#696969"; chsl[44]="(0,0.0%,41.2%)";
+cnames[45]="dodgerblue";  cvalues[45]="(30, 144, 255)"; chex[45]="#1E90FF"; chsl[45]="(210,100.0%,55.9%)";
+cnames[46]="firebrick";  cvalues[46]="(178, 34, 34)"; chex[46]="#B22222"; chsl[46]="(0,67.9%,41.6%)";
+cnames[47]="floralwhite";  cvalues[47]="(255, 250, 240)"; chex[47]="#FFFAF0"; chsl[47]="(40,100.0%,97.1%)";
+cnames[48]="forestgreen";  cvalues[48]="(34, 139, 34)"; chex[48]="#228B22"; chsl[48]="(120,60.7%,33.9%)";
+cnames[49]="fuchsia";  cvalues[49]="(255, 0, 255)"; chex[49]="#FF00FF"; chsl[49]="(300,100.0%,50.0%)";
+cnames[50]="gainsboro";  cvalues[50]="(220, 220, 220)"; chex[50]="#DCDCDC"; chsl[50]="(0,0.0%,86.3%)";
+cnames[51]="ghostwhite";  cvalues[51]="(248, 248, 255)"; chex[51]="#F8F8FF"; chsl[51]="(240,100.0%,98.6%)";
+cnames[52]="gold";  cvalues[52]="(255, 215, 0)"; chex[52]="#FFD700"; chsl[52]="(51,100.0%,50.0%)";
+cnames[53]="goldenrod";  cvalues[53]="(218, 165, 32)"; chex[53]="#DAA520"; chsl[53]="(43,74.4%,49.0%)";
+cnames[54]="gray";  cvalues[54]="(128, 128, 128)"; chex[54]="#808080"; chsl[54]="(0,0.0%,50.2%)";
+cnames[55]="green";  cvalues[55]="(0, 128, 0)"; chex[55]="#008000"; chsl[55]="(120,100.0%,25.1%)";
+cnames[56]="greenyellow";  cvalues[56]="(173, 255, 47)"; chex[56]="#ADFF2F"; chsl[56]="(84,100.0%,59.2%)";
+cnames[57]="grey";  cvalues[57]="(128, 128, 128)"; chex[57]="#808080"; chsl[57]="(0,0.0%,50.2%)";
+cnames[58]="honeydew";  cvalues[58]="(240, 255, 240)"; chex[58]="#F0FFF0"; chsl[58]="(120,100.0%,97.1%)";
+cnames[59]="hotpink";  cvalues[59]="(255, 105, 180)"; chex[59]="#FF69B4"; chsl[59]="(330,100.0%,70.6%)";
+cnames[60]="indianred";  cvalues[60]="(205, 92, 92)"; chex[60]="#CD5C5C"; chsl[60]="(0,53.1%,58.2%)";
+cnames[61]="indigo";  cvalues[61]="(75, 0, 130)"; chex[61]="#4B0082"; chsl[61]="(275,100.0%,25.5%)";
+cnames[62]="ivory";  cvalues[62]="(255, 255, 240)"; chex[62]="#FFFFF0"; chsl[62]="(60,100.0%,97.1%)";
+cnames[63]="khaki";  cvalues[63]="(240, 230, 140)"; chex[63]="#F0E68C"; chsl[63]="(54,76.9%,74.5%)";
+cnames[64]="lavender";  cvalues[64]="(230, 230, 250)"; chex[64]="#E6E6FA"; chsl[64]="(240,66.7%,94.1%)";
+cnames[65]="lavenderblush";  cvalues[65]="(255, 240, 245)"; chex[65]="#FFF0F5"; chsl[65]="(340,100.0%,97.1%)";
+cnames[66]="lawngreen";  cvalues[66]="(124, 252, 0)"; chex[66]="#7CFC00"; chsl[66]="(90,100.0%,49.4%)";
+cnames[67]="lemonchiffon";  cvalues[67]="(255, 250, 205)"; chex[67]="#FFFACD"; chsl[67]="(54,100.0%,90.2%)";
+cnames[68]="lightblue";  cvalues[68]="(173, 216, 230)"; chex[68]="#ADD8E6"; chsl[68]="(195,53.3%,79.0%)";
+cnames[69]="lightcoral";  cvalues[69]="(240, 128, 128)"; chex[69]="#F08080"; chsl[69]="(0,78.9%,72.2%)";
+cnames[70]="lightcyan";  cvalues[70]="(224, 255, 255)"; chex[70]="#E0FFFF"; chsl[70]="(180,100.0%,93.9%)";
+cnames[71]="lightgoldenrodyellow";  cvalues[71]="(250, 250, 210)"; chex[71]="#FAFAD2"; chsl[71]="(60,80.0%,90.2%)";
+cnames[72]="lightgray";  cvalues[72]="(211, 211, 211)"; chex[72]="#D3D3D3"; chsl[72]="(0,0.0%,82.7%)";
+cnames[73]="lightgreen";  cvalues[73]="(144, 238, 144)"; chex[73]="#90EE90"; chsl[73]="(120,73.4%,74.9%)";
+cnames[74]="lightgrey";  cvalues[74]="(211, 211, 211)"; chex[74]="#D3D3D3"; chsl[74]="(0,0.0%,82.7%)";
+cnames[75]="lightpink";  cvalues[75]="(255, 182, 193)"; chex[75]="#FFB6C1"; chsl[75]="(351,100.0%,85.7%)";
+cnames[76]="lightsalmon";  cvalues[76]="(255, 160, 122)"; chex[76]="#FFA07A"; chsl[76]="(17,100.0%,73.9%)";
+cnames[77]="lightseagreen";  cvalues[77]="(32, 178, 170)"; chex[77]="#20B2AA"; chsl[77]="(177,69.5%,41.2%)";
+cnames[78]="lightskyblue";  cvalues[78]="(135, 206, 250)"; chex[78]="#87CEFA"; chsl[78]="(203,92.0%,75.5%)";
+cnames[79]="lightslategray";  cvalues[79]="(119, 136, 153)"; chex[79]="#778899"; chsl[79]="(210,14.3%,53.3%)";
+cnames[80]="lightslategrey";  cvalues[80]="(119, 136, 153)"; chex[80]="#778899"; chsl[80]="(210,14.3%,53.3%)";
+cnames[81]="lightsteelblue";  cvalues[81]="(176, 196, 222)"; chex[81]="#B0C4DE"; chsl[81]="(214,41.1%,78.0%)";
+cnames[82]="lightyellow";  cvalues[82]="(255, 255, 224)"; chex[82]="#FFFFE0"; chsl[82]="(60,100.0%,93.9%)";
+cnames[83]="lime";  cvalues[83]="(0, 255, 0)"; chex[83]="#00FF00"; chsl[83]="(120,100.0%,50.0%)";
+cnames[84]="limegreen";  cvalues[84]="(50, 205, 50)"; chex[84]="#32CD32"; chsl[84]="(120,60.8%,50.0%)";
+cnames[85]="linen";  cvalues[85]="(250, 240, 230)"; chex[85]="#FAF0E6"; chsl[85]="(30,66.7%,94.1%)";
+cnames[86]="magenta";  cvalues[86]="(255, 0, 255)"; chex[86]="#FF00FF"; chsl[86]="(300,100.0%,50.0%)";
+cnames[87]="maroon";  cvalues[87]="(128, 0, 0)"; chex[87]="#800000"; chsl[87]="(0,100.0%,25.1%)";
+cnames[88]="mediumaquamarine";  cvalues[88]="(102, 205, 170)"; chex[88]="#66CDAA"; chsl[88]="(160,50.7%,60.2%)";
+cnames[89]="mediumblue";  cvalues[89]="(0, 0, 205)"; chex[89]="#0000CD"; chsl[89]="(240,100.0%,40.2%)";
+cnames[90]="mediumorchid";  cvalues[90]="(186, 85, 211)"; chex[90]="#BA55D3"; chsl[90]="(288,58.9%,58.0%)";
+cnames[91]="mediumpurple";  cvalues[91]="(147, 112, 219)"; chex[91]="#9370DB"; chsl[91]="(260,59.8%,64.9%)";
+cnames[92]="mediumseagreen";  cvalues[92]="(60, 179, 113)"; chex[92]="#3CB371"; chsl[92]="(147,49.8%,46.9%)";
+cnames[93]="mediumslateblue";  cvalues[93]="(123, 104, 238)"; chex[93]="#7B68EE"; chsl[93]="(249,79.8%,67.1%)";
+cnames[94]="mediumspringgreen";  cvalues[94]="(0, 250, 154)"; chex[94]="#00FA9A"; chsl[94]="(157,100.0%,49.0%)";
+cnames[95]="mediumturquoise";  cvalues[95]="(72, 209, 204)"; chex[95]="#48D1CC"; chsl[95]="(178,59.8%,55.1%)";
+cnames[96]="mediumvioletred";  cvalues[96]="(199, 21, 133)"; chex[96]="#C71585"; chsl[96]="(322,80.9%,43.1%)";
+cnames[97]="midnightblue";  cvalues[97]="(25, 25, 112)"; chex[97]="#191970"; chsl[97]="(240,63.5%,26.9%)";
+cnames[98]="mintcream";  cvalues[98]="(245, 255, 250)"; chex[98]="#F5FFFA"; chsl[98]="(150,100.0%,98.0%)";
+cnames[99]="mistyrose";  cvalues[99]="(255, 228, 225)"; chex[99]="#FFE4E1"; chsl[99]="(6,100.0%,94.1%)";
+cnames[100]="moccasin";  cvalues[100]="(255, 228, 181)"; chex[100]="#FFE4B5"; chsl[100]="(38,100.0%,85.5%)";
+cnames[101]="navajowhite";  cvalues[101]="(255, 222, 173)"; chex[101]="#FFDEAD"; chsl[101]="(36,100.0%,83.9%)";
+cnames[102]="navy";  cvalues[102]="(0, 0, 128)"; chex[102]="#000080"; chsl[102]="(240,100.0%,25.1%)";
+cnames[103]="oldlace";  cvalues[103]="(253, 245, 230)"; chex[103]="#FDF5E6"; chsl[103]="(39,85.2%,94.7%)";
+cnames[104]="olive";  cvalues[104]="(128, 128, 0)"; chex[104]="#808000"; chsl[104]="(60,100.0%,25.1%)";
+cnames[105]="olivedrab";  cvalues[105]="(107, 142, 35)"; chex[105]="#6B8E23"; chsl[105]="(80,60.5%,34.7%)";
+cnames[106]="orange";  cvalues[106]="(255, 165, 0)"; chex[106]="#FFA500"; chsl[106]="(39,100.0%,50.0%)";
+cnames[107]="orangered";  cvalues[107]="(255, 69, 0)"; chex[107]="#FF4500"; chsl[107]="(16,100.0%,50.0%)";
+cnames[108]="orchid";  cvalues[108]="(218, 112, 214)"; chex[108]="#DA70D6"; chsl[108]="(302,58.9%,64.7%)";
+cnames[109]="palegoldenrod";  cvalues[109]="(238, 232, 170)"; chex[109]="#EEE8AA"; chsl[109]="(55,66.7%,80.0%)";
+cnames[110]="palegreen";  cvalues[110]="(152, 251, 152)"; chex[110]="#98FB98"; chsl[110]="(120,92.5%,79.0%)";
+cnames[111]="paleturquoise";  cvalues[111]="(175, 238, 238)"; chex[111]="#AFEEEE"; chsl[111]="(180,64.9%,81.0%)";
+cnames[112]="palevioletred";  cvalues[112]="(219, 112, 147)"; chex[112]="#DB7093"; chsl[112]="(340,59.8%,64.9%)";
+cnames[113]="papayawhip";  cvalues[113]="(255, 239, 213)"; chex[113]="#FFEFD5"; chsl[113]="(37,100.0%,91.8%)";
+cnames[114]="peachpuff";  cvalues[114]="(255, 218, 185)"; chex[114]="#FFDAB9"; chsl[114]="(28,100.0%,86.3%)";
+cnames[115]="peru";  cvalues[115]="(205, 133, 63)"; chex[115]="#CD853F"; chsl[115]="(30,58.7%,52.5%)";
+cnames[116]="pink";  cvalues[116]="(255, 192, 203)"; chex[116]="#FFC0CB"; chsl[116]="(350,100.0%,87.6%)";
+cnames[117]="plum";  cvalues[117]="(221, 160, 221)"; chex[117]="#DDA0DD"; chsl[117]="(300,47.3%,74.7%)";
+cnames[118]="powderblue";  cvalues[118]="(176, 224, 230)"; chex[118]="#B0E0E6"; chsl[118]="(187,51.9%,79.6%)";
+cnames[119]="purple";  cvalues[119]="(128, 0, 128)"; chex[119]="#800080"; chsl[119]="(300,100.0%,25.1%)";
+cnames[120]="red";  cvalues[120]="(255, 0, 0)"; chex[120]="#FF0000"; chsl[120]="(0,100.0%,50.0%)";
+cnames[121]="rosybrown";  cvalues[121]="(188, 143, 143)"; chex[121]="#BC8F8F"; chsl[121]="(0,25.1%,64.9%)";
+cnames[122]="royalblue";  cvalues[122]="(65, 105, 225)"; chex[122]="#4169E1"; chsl[122]="(225,72.7%,56.9%)";
+cnames[123]="saddlebrown";  cvalues[123]="(139, 69, 19)"; chex[123]="#8B4513"; chsl[123]="(25,75.9%,31.0%)";
+cnames[124]="salmon";  cvalues[124]="(250, 128, 114)"; chex[124]="#FA8072"; chsl[124]="(6,93.2%,71.4%)";
+cnames[125]="sandybrown";  cvalues[125]="(244, 164, 96)"; chex[125]="#F4A460"; chsl[125]="(28,87.1%,66.7%)";
+cnames[126]="seagreen";  cvalues[126]="(46, 139, 87)"; chex[126]="#2E8B57"; chsl[126]="(146,50.3%,36.3%)";
+cnames[127]="seashell";  cvalues[127]="(255, 245, 238)"; chex[127]="#FFF5EE"; chsl[127]="(25,100.0%,96.7%)";
+cnames[128]="sienna";  cvalues[128]="(160, 82, 45)"; chex[128]="#A0522D"; chsl[128]="(19,56.1%,40.2%)";
+cnames[129]="silver";  cvalues[129]="(192, 192, 192)"; chex[129]="#C0C0C0"; chsl[129]="(0,0.0%,75.3%)";
+cnames[130]="skyblue";  cvalues[130]="(135, 206, 235)"; chex[130]="#87CEEB"; chsl[130]="(197,71.4%,72.5%)";
+cnames[131]="slateblue";  cvalues[131]="(106, 90, 205)"; chex[131]="#6A5ACD"; chsl[131]="(248,53.5%,57.8%)";
+cnames[132]="slategray";  cvalues[132]="(112, 128, 144)"; chex[132]="#708090"; chsl[132]="(210,12.6%,50.2%)";
+cnames[133]="slategrey";  cvalues[133]="(112, 128, 144)"; chex[133]="#708090"; chsl[133]="(210,12.6%,50.2%)";
+cnames[134]="snow";  cvalues[134]="(255, 250, 250)"; chex[134]="#FFFAFA"; chsl[134]="(0,100.0%,99.0%)";
+cnames[135]="springgreen";  cvalues[135]="(0, 255, 127)"; chex[135]="#00FF7F"; chsl[135]="(150,100.0%,50.0%)";
+cnames[136]="steelblue";  cvalues[136]="(70, 130, 180)"; chex[136]="#4682B4"; chsl[136]="(207,44.0%,49.0%)";
+cnames[137]="tan";  cvalues[137]="(210, 180, 140)"; chex[137]="#D2B48C"; chsl[137]="(34,43.8%,68.6%)";
+cnames[138]="teal";  cvalues[138]="(0, 128, 128)"; chex[138]="#008080"; chsl[138]="(180,100.0%,25.1%)";
+cnames[139]="thistle";  cvalues[139]="(216, 191, 216)"; chex[139]="#D8BFD8"; chsl[139]="(300,24.3%,79.8%)";
+cnames[140]="tomato";  cvalues[140]="(255, 99, 71)"; chex[140]="#FF6347"; chsl[140]="(9,100.0%,63.9%)";
+cnames[141]="turquoise";  cvalues[141]="(64, 224, 208)"; chex[141]="#40E0D0"; chsl[141]="(174,72.1%,56.5%)";
+cnames[142]="violet";  cvalues[142]="(238, 130, 238)"; chex[142]="#EE82EE"; chsl[142]="(300,76.1%,72.2%)";
+cnames[143]="wheat";  cvalues[143]="(245, 222, 179)"; chex[143]="#F5DEB3"; chsl[143]="(39,76.7%,83.1%)";
+cnames[144]="white";  cvalues[144]="(255, 255, 255)"; chex[144]="#FFFFFF"; chsl[144]="(0,0.0%,100.0%)";
+cnames[145]="whitesmoke";  cvalues[145]="(245, 245, 245)"; chex[145]="#F5F5F5"; chsl[145]="(0,0.0%,96.1%)";
+cnames[146]="yellow";  cvalues[146]="(255, 255, 0)"; chex[146]="#FFFF00"; chsl[146]="(60,100.0%,50.0%)";
+cnames[147]="yellowgreen";  cvalues[147]="(154, 205, 50)"; chex[147]="#9ACD32"; chsl[147]="(80,60.8%,50.0%)";
+
+</script>
+
+</head>
+
+<body>
+<div id="demo_page">
+
+<div id="demo_intro">
+   <table>
+   <tr><td style="width: 40%"><img src="images/cengage.jpg" alt="Course Technology Cengage Learning" /></td>
+       <td style="width: 60%; text-align:right; font-family: Arial, Helvetica, sans-serif; font-size: 1.2em">
+          New Perspectives on HTML5 and CSS3, 7th Edition<br />Tutorial 2
+   </td></tr>
+   </table>
+
+   <h2 id="h2heading">Color Names </h2>
+   <div id="para">
+   <p>You define colors in HTML and CSS using either a color name or a color 
+      value expressed using the RGB or the HSL color model. The table below provides
+	  the extended list of 147 colors supported by CSS3. For each color, the table shows the 
+      equivalent RGB color value, that RGB color value expressed using the hexadecimal color 
+      model, and the color expressed using the HSL color model.
+   </div>
+</div>
+
+<div id="demo_container">
+   <table id="tableleft">
+   <tr><th>Sample</th><th>Name</th><th>RGB</th><th>Hexadecimal</th><th>HSL</th></tr>
+
+   <script type="text/javascript">
+      for (num=1;num <=147; num++) {
+ 
+			 document.write("<tr><td style='background-color:"+cnames[num]+"'>&nbsp;</td>");
+			 document.write("<td style='text-align:left'>"+cnames[num]+"</td>");
+			 document.write("<td>"+cvalues[num]+"</td>");
+			 document.write("<td>"+chex[num]+"</td>");
+			 document.write("<td>"+chsl[num]+"</td></tr>");			 
+
+      }
+   </script>
+   </table>
+</div>
+
+   <div id="demo_footer">
+      Carey, P.
+      <span class="btitle">New Perspectives on HTML5 and CSS3, 7th Edition</span>,
+      Cengage Learning: Boston, 2015.
+   </div>
+
+</div>
+</body>
+</html>
+
+

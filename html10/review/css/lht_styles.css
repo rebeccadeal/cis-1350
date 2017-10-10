@@ -1,0 +1,233 @@
+@charset "utf-8";
+
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 10
+   Review Assignment
+
+   Lyman Hall Theater General Style Sheet
+  
+   Filename:   lht_styles.css
+
+*/
+
+
+/* HTML and Body styles */
+
+html {
+   background: rgb(151, 151, 221);
+   font-family: Verdana, Geneva, sans-serif;
+   height: 100%;
+}
+
+body {
+   background-color: white;
+   box-shadow: rgb(51, 51, 51) 10px 0px 40px, rgb(51, 51, 51) -10px 0px 40px;
+   border-left: 1px solid gray;
+   border-right: 1px solid gray;  
+   margin: 50px auto;
+   min-width: 400px;
+   max-width: 1024px;   
+   width: 100%; 
+}
+
+
+/* Header styles */
+
+header {
+   background: rgb(47, 121, 209);
+}
+
+header img#logoimg {
+   display: block;
+   width: 100%;
+}
+
+/* Navigation list styles */
+
+header nav ul {
+   width: 100%;
+}
+
+header nav ul li {
+   font-size: 1em;   
+}
+
+header nav ul li a {
+   color: white;
+   display: block;
+   padding: 5px 20px;
+   width: 100%;
+}
+
+header nav ul li a:hover {
+   color: rgb(234, 195, 160);
+}
+
+a#navicon {
+   display: none;
+}
+
+/* Section Styles */
+
+section {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;
+}
+
+
+/* Article Styles */
+
+article {
+   -webkit-flex: 1 1 250px;
+   flex: 1 1 250px;   
+   margin: 20px;
+}
+
+article h1 {
+   color: rgb(0, 81, 226);
+   font-family: "Times New Roman", Times,  serif;
+   font-weight: normal;
+   font-size: 2.5em;
+   letter-spacing: 0.03em;
+   line-height: 1.2em;
+   margin-bottom: 20px;
+   text-align: center;
+}
+
+article p {
+   line-height: 1.5;
+   margin-bottom: 15px;
+   font-size: 0.85em;
+}
+
+article p em {
+   color: rgb(154, 64, 3);
+}
+
+
+
+/* Event List Style */
+
+div#eventList {
+   -webkit-flex: 1 1 350px;
+   flex: 1 1 350px;   
+   margin: 20px;
+}
+
+
+
+/* Footer styles */   
+
+footer {
+   clear: both;
+   color: white;    
+   background: linear-gradient(to bottom, rgb(7, 142, 244), rgb(41, 41, 41));
+   font-size: 0.7em;  
+   font-style: normal;
+   width: 100%;
+   margin-top: 20px;
+}
+
+footer nav ul, footer section {
+   float: right;
+   padding: 10px 30px;
+   width: 20%;
+}
+
+footer section {
+   float: left;
+   padding: 5px 30px 25px;
+   width: 40%;
+}
+
+footer nav ul a {
+   color: white;
+}
+
+footer nav ul a:hover {
+   text-decoration: underline;
+}
+
+footer::after {
+   display: table;
+   content: "";
+   clear: both;
+}
+
+/* ===============================
+   Mobile Styles: 0px to 640px 
+   ===============================
+*/
+@media only screen and (max-width: 640px) {
+
+   
+   body {
+      margin: 0px;
+   }
+   
+   a#navicon {
+      display: block;
+   }
+   
+   header nav {
+      padding-bottom: 5px;
+   }
+   
+   header nav ul {
+      display: none;
+   }
+   
+   header nav ul li {
+      font-size: 1em;
+      line-height: 1.3em;
+      height: 1.3em;
+   }
+   
+   a#navicon:hover+ul, header nav ul:hover {
+      display: block;
+   }
+   
+   header img#logoimg {
+      width: 100%;
+   }
+   
+   article h1 {
+      font-size: 1.8em;
+   }
+   
+   div#calendar {
+      width: 100%;
+      margin: 10px 0px;
+   }   
+   
+   footer nav ul, footer section {
+      font-size: 1.2em;
+      width: 100%;
+   }
+}
+
+
+/* =============================================
+   Tablet and Desktop Styles: greater than 640px
+   =============================================
+*/
+@media only screen and (min-width: 641px) {
+    
+   header nav ul {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+      -webkit-justify-content: center;
+      justify-content: center;
+   }
+   
+   header nav ul li {
+      -webkit-flex: 0 1 auto;
+      flex: 0 1 auto;
+   }
+}

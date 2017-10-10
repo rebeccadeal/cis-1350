@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 4
+Review Assignment
+
+Design Style Sheet for Tree and Book Family Home Page
+Author: Rebecca Deal
+Date: 9/26/17
+
+Filename: tb_visual3.css
+*/
+
+/* HTML Styles */
+
+html {
+  background-image: url(../images/tb_back5.png);
+}
+
+/* Page Body Styles */
+
+body {
+  border-left: solid rgb(169, 130, 88) 3px;
+  border-right: solid rgb(169, 130, 88) 3px;
+  -webkit-box-shadow: rgb(53, 21, 0) 25px 0px 30px, rgb(53, 21, 0) -25px 0px 35px;
+  -moz-box-shadow: rgb(53, 21, 0) 25px 0px 30px, rgb(53, 21, 0) -25px 0px 35px;
+  box-shadow: rgb(53, 21, 0) 25px 0px 30px, rgb(53, 21, 0) -25px 0px 35px;
+}
+
+/* Main Styles */
+
+main {
+  background: url(../images/tb_back7.png) 100%/cover no-repeat padding-box;
+  -webkit-box-shadow: rgb(71, 71, 71) -10px 0px 25px, rgb(71, 71, 71) 10px 0px 25px;
+  -moz-box-shadow: rgb(71, 71, 71) -10px 0px 25px, rgb(71, 71, 71) 10px 0px 25px;
+  box-shadow: rgb(71, 71, 71) -10px 0px 25px, rgb(71, 71, 71) 10px 0px 25px;
+}
+
+main header h1 {
+  -webkit-text-shadow: rgb(221, 221, 221) 1px 1px 0, rgba(41, 41, 41, 0.9) 5px 5px 20px;
+  -moz-text-shadow: rgb(221, 221, 221) 1px 1px 0, rgba(41, 41, 41, 0.9) 5px 5px 20px;
+  text-shadow: rgb(221, 221, 221) 1px 1px 0, rgba(41, 41, 41, 0.9) 5px 5px 20px;
+}
+
+/* Figure Box Styles */
+
+figure {
+  margin: 10px auto;
+  width: 70%;
+}
+
+figure img {
+  width: 100%;
+  border-width: 25px;
+  border-style: solid;
+  display: block;
+  border-image: url(../images/tb_frame.png) 60 stretch;
+  -webkit-filter: sepia(0.8);
+  -moz-filter: sepia(0.8);
+  filter: sepia(0.8);
+}
+
+main header figure figcaption {
+  font-family: "Palatino Linotype", Palatino, "Times New Roman", serif;
+  font-style: italic;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Article Styles */
+
+article {
+  background-image: url(../images/tb_back6.png) bottom right / 15% no-repeat;
+  border-right: 8px double rgb(147, 116, 68);
+  border-bottom: 8px double rgb(147, 116, 68);
+  -webkit-box-shadow: inset rgba(184, 154, 112, 0.7) -10px -10px 25px;
+  -moz-box-shadow: inset rgba(184, 154, 112, 0.7) -10px -10px 25px;
+  box-shadow: inset rgba(184, 154, 112, 0.7) -10px -10px 25px;
+  -webkit-border-bottom-right-radius: 80px;
+  -moz-border-bottom-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+}
+
+/* Footer Styles */
+
+footer {
+  background: linear-gradient(325deg, rgb(180, 148, 104) 20%, rgb(40, 33, 23) 60%;)
+}

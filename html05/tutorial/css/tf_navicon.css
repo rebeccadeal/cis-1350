@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/*
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 5
+Tutorial Case
+
+Pages: 350-419
+Due Date: 10/8/17
+
+Author: Rebecca Deal
+Date: 10/3/17
+
+Filename: tf_navicon.css
+Path: /rebecca.deal/html05/tutorial/css/tf_navicon.css
+
+This file contains styles used to control a navicon menu.
+*/
+
+/*
+================================================================================
+Base Styles
+================================================================================
+*/
+
+a#navicon {
+  display: none;
+}
+
+/*
+================================================================================
+Mobile Devices: 0 to 480px
+================================================================================
+*/
+
+@media only screen and (max-width: 480px) {
+
+  a#navicon {
+    display: block;
+  }
+
+  nav.horizontal ul {
+    display: none;
+  }
+
+  a#navicon:hover+ul, nav.horizontal ul:hover {
+    display: block;
+  }
+
+}
