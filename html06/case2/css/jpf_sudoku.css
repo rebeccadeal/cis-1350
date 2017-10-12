@@ -35,7 +35,7 @@ table.spuzzle th {
   padding-bottom: 10px;
 }
 
-/* NOTE: is it okay to include this to fix the spacing for the cells with letters A-I? */
+/* Fix spacing of cells with A-I */
 table.spuzzle tbody th {
   height: 40px;
 }
@@ -48,12 +48,12 @@ table.subTable {
 }
 
 table.subTable td {
-  box-shadow: inset 0 0 15px; /* NOTE: is the shadow supposed to be blue? */
+  box-shadow: inset 0 0 15px;
   border: 1px solid black;
   color: blue;
   height: 40px;
   text-align: center;
-  vertical-align: middle; /* NOTE: should I include this? */
+  vertical-align: middle;
 }
 
 table.spuzzle td.goldBox td {
