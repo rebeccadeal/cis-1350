@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!--
+  New Perspectives on HTML5 and CSS3, 7th Edition
+  Tutorial 7
+  Review Assignment
+
+  Pages: 571-574
+  Due Date: 10/23/17
+
+  Red Ball Pizza Building Form
+  Author: Rebecca Deal
+  Date: 10/19/17
+
+  Filename: rb_build.html
+  Path: /rebecca.deal/html07/review/rb_build.html
+  -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Red Ball Pizza Build a Pizza</title>
+  <link href="css/rb_base.css" rel="stylesheet" />
+  <link href="css/rb_styles2.css" rel="stylesheet" />
+  <link href="css/rb_forms2.css" rel="stylesheet" />
+  <link href="css/rb_validate.css" rel="stylesheet" />
+  <script src="scripts/rb_formsubmit2.js"></script>
+
+  <style>
+
+    /* for tweaking the position of the rb_sizes.png image */
+    img#pizzaSize {
+      padding-left: 140px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <img src="images/rb_logo2.png" alt="Red Ball Pizza" id="logoimg" />
+    <nav><a id="navicon" href="#"><img src="images/rb_navicon2.png" alt="" /></a>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">menu</a></li>
+        <li><a href="#">directions</a></li>
+        <li><a href="#">coupons</a></li>
+        <li><a href="#">orders</a></li>
+        <li><a href="#">catering</a></li>
+        <li><a href="#">reviews</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h1>Build your Pizza</h1>
+    <p>Everyone has their own pizza preferences. Build your special pizza
+    by selecting from the ingredients below. You can divide your pizza
+    into two regions to give your friends a wide choice of toppings
+    and flavors.</p>
+    <form action="http://www.example.com/redball/build" method="post">
+      <div>
+        <label for="quantityBox">Quantity</label>
+        <input type="number" name="pizzaQuantity" value="1" min="1" max="10" id="quantityBox" />
+        <br />
+      </div>
+      <div>
+        <img src="images/rb_sizes.png" alt="Pizza Size" id="pizzaSize" />
+        <br />
+        <label for="sizeBox">Pizza Size</label>
+        <input type="range" name="pizzaSize" value="14" step="2" min="10" max="16" id="sizeBox" />
+      </div>
+      <div>
+        <label for="crustBox">Pizza Crust</label>
+        <select name="pizzaCrust" id="crustBox">
+          <option value="thin">Thin</option>
+          <option value="thick">Thick</option>
+          <option value="stuffed">Stuffed</option>
+          <option value="pan">Pan</option>
+        </select>
+      </div>
+      <div>
+        <input id="cheeseBox" name="doubleCheese" type="checkbox" />
+        <label for="cheeseBox">Double Cheese</label>
+        <input id="sauceBox" name="doubleSauce" type="checkbox" />
+        <label for="sauceBox">Double Sauce</label>
+      </div>
+      <fieldset>
+        <legend>Meat Toppings</legend>
+        <div>
+          <label>Location</label>
+          <img src="images/rb_full.png" alt="toppings on full pizza" />
+          <img src="images/rb_left.png" alt="toppings on left half of pizza" />
+          <img src="images/rb_right.png" alt="toppings on right half of pizza" />
+          <img src="images/rb_none.png" alt="no toppings" />
+        </div>
+        <div>
+          <label>Pepperoni</label>
+          <input type="radio" name="pepperoni" value="full" />
+          <input type="radio" name="pepperoni" value="left" />
+          <input type="radio" name="pepperoni" value="right" />
+          <input type="radio" name="pepperoni" value="none" checked="checked" />
+        </div>
+        <div>
+          <label>Ham</label>
+          <input type="radio" name="ham" value="full" />
+          <input type="radio" name="ham" value="left" />
+          <input type="radio" name="ham" value="right" />
+          <input type="radio" name="ham" value="none" checked="checked" />
+        </div>
+        <div>
+          <label>Pork</label>
+          <input type="radio" name="pork" value="full" />
+          <input type="radio" name="pork" value="left" />
+          <input type="radio" name="pork" value="right" />
+          <input type="radio" name="pork" value="none" checked="checked" />
+        </div>
+        <div>
+          <label>Sausage</label>
+          <input type="radio" name="sausage" value="full" />
+          <input type="radio" name="sausage" value="left" />
+          <input type="radio" name="sausage" value="right" />
+          <input type="radio" name="sausage" value="none" checked="checked" />
+        </div>
+        <div>
+          <label>Chicken</label>
+          <input type="radio" name="chicken" value="full" />
+          <input type="radio" name="chicken" value="left" />
+          <input type="radio" name="chicken" value="right" />
+          <input type="radio" name="chicken" value="none" checked="checked" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Vegetables Toppings</legend>
+        <div>
+          <label>Location</label>
+          <img src="images/rb_full.png" alt="toppings on full pizza" />
+          <img src="images/rb_left.png" alt="toppings on left half of pizza" />
+          <img src="images/rb_right.png" alt="toppings on right half of pizza" />
+          <img src="images/rb_none.png" alt="no toppings" />
+        </div>
+        <div>
+          <label>Mushrooms</label>
+          <input type="radio" name="mushrooms" value="full" />
+          <input type="radio" name="mushrooms" value="left" />
+          <input type="radio" name="mushrooms" value="right" />
+          <input type="radio" name="mushrooms" value="none" checked="checked" />
+        </div>
+        <div>
+          <label>Peppers</label>
+          <input type="radio" name="peppers" value="full" />
+          <input type="radio" name="peppers" value="left" />
+          <input type="radio" name="peppers" value="right" />
+          <input type="radio" name="peppers" value="none" checked="checked" />
+        </div>
+        <div>
+          <label>Onions</label>
+          <input type="radio" name="onions" value="full" />
+          <input type="radio" name="onions" value="left" />
+          <input type="radio" name="onions" value="right" />
+          <input type="radio" name="onions" value="none" checked="checked" />
+        </div>
+        <div>
+          <label>Tomatoes</label>
+          <input type="radio" name="tomatoes" value="full" />
+          <input type="radio" name="tomatoes" value="left" />
+          <input type="radio" name="tomatoes" value="right" />
+          <input type="radio" name="tomatoes" value="none" checked="checked" />
+        </div>
+        <div>
+          <label>Jalapenos</label>
+          <input type="radio" name="jalapenos" value="full" />
+          <input type="radio" name="jalapenos" value="left" />
+          <input type="radio" name="jalapenos" value="right" />
+          <input type="radio" name="jalapenos" value="none" checked="checked" />
+        </div>
+      </fieldset>
+      <div>
+        <input type="submit" value="Add to your Order" />
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <h1>ORDER</h1>
+    <a href="#">Specials</a> <a href="#">Pizza</a> <a href="#">Pasta</a> <a href="#">Wings</a> <a href="#">Sides</a> <a href="#">Salads</a> <a href="#">Drinks</a> <a href="#">Desserts</a>
+    <h1>ABOUT US</h1>
+    <a href="#">Our Story</a> <a href="#">Blog</a> <a href="#">Catering</a> <a href="#">School Lunches</a>
+    <h1>CUSTOMER SERVICE</h1>
+    <a href="#">Gluten Free Crusts</a> <a href="#">Contact Us</a> <a href="#">FAQs</a>
+    <h1>MY ACCOUNT</h1>
+    <a href="#">Create an Account</a> <a href="#">Sign In</a> <a href="#">Order Status</a>
+    <h1>NUTRITION</h1>
+    <a href="#">Nutrition Information</a> <a href="#">Food Allergen</a> <a href="#">Gluten Free Pizza</a>
+    <h1>POLICIES</h1>
+    <a href="#">Privacy Policy</a> <a href="#">Terms of Use</a>
+    <address>
+      Red Ball Pizza<br />
+      811 Beach Drive<br />
+      Ormond Beach, FL  32175<br />
+      (386) 555 - 7499
+    </address>
+  </footer>
+
+</body>
+</html>
