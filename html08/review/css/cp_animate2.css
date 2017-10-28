@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/*
+New Perspectives on HTML and CSS, 7th Edition
+Tutorial 8
+Review Assignment
+
+Pages: 652-654
+Due Date: 10/30/17
+
+Cinema Penguin Styles for Animation
+Author: Rebecca Deal
+Date: 10/28/17
+
+Filename: cp_animate2.css
+Path: /rebecca.deal/html08/review/css/cp_animate2.css
+*/
+
+/* Transition Styles */
+
+nav#topLinks a {
+  color: rgb(255, 255, 255);
+  text-shadow: rgba(0, 0, 0, 1) 1px -1px 1px;
+  transform: scale(1,1) translateY(0px);
+  transition: color 1.2s linear, text-shadow 1.2s linear, transform 1.2s linear;
+}
+
+nav#topLinks a:hover {
+  color: rgb(255, 183, 25);
+  text-shadow: rgba(0, 0, 0, 0.5) 0px 15px 4px;
+  transform: scale(2,2) translateY(-15);
+}
+
+/* Marquee Styles */
+
+div#marquee {
+  position: relative;
+}
+
+div#marquee table {
+  position: absolute;
+}
+
+/* Keyframe Styles */
+
+@keyframes scroll {
+  0%    {top: 250px;}
+  100%  {top: -1300px;}
+}
+
+/* Animation Styles */
+
+div#marquee table {
+  animation: scroll 50s linear infinite;
+}
+
+div#marquee:hover table {
+  animation-play-state: paused;
+}

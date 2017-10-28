@@ -39,16 +39,16 @@ nav#topLinks a:hover {
 /* Key Frames Styles */
 
 @keyframes spin {
-  0% {transform: rotate(0deg);}
-  23% {transform: rotate(0deg);}
-  28% {transform: rotate(90deg);}
-  39% {transform: rotate(90deg);}
-  42% {transform: rotate(180deg);}
-  68% {transform: rotate(180deg);}
-  72% {transform: rotate(270deg);}
-  90% {transform: rotate(270deg);}
-  94% {transform: rotate(360deg);}
-  100% {transform: rotate(360deg);}
+  0%    {transform: rotate(0deg);}
+  23%   {transform: rotate(0deg);}
+  28%   {transform: rotate(90deg);}
+  39%   {transform: rotate(90deg);}
+  42%   {transform: rotate(180deg);}
+  68%   {transform: rotate(180deg);}
+  72%   {transform: rotate(270deg);}
+  90%   {transform: rotate(270deg);}
+  94%   {transform: rotate(360deg);}
+  100%  {transform: rotate(360deg);}
 }
 
 /* Animation Styles */
