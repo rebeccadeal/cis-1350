@@ -7,7 +7,7 @@
   Tutorial 8
   Tutorial Case
 
-  Pages:
+  Pages: 589-648
   Due Date: 10/30/17
 
   Cinema Penguin Royal Wedding Page
@@ -109,6 +109,8 @@
       <p>Click the play button below to hear the musical overture for Burton
       Lane's <cite>Royal Wedding</cite>.</p>
       <audio controls>
+        <source src="https://raw.githubusercontent.com/rebeccadeal/cis-1350/master/html08/tutorial/media/cp_overture.mp3" type="audio/mp3" /> <!-- cisnook bandwidth problem workaround -->
+        <source src="https://raw.githubusercontent.com/rebeccadeal/cis-1350/master/html08/tutorial/media/cp_overture.ogg" type="audio/ogg" /> <!-- cisnook bandwidth problem workaround -->
         <source src="media/cp_overture.mp3" type="audio/mp3" />
         <source src="media/cp_overture.ogg" type="audio/ogg" />
         <p><em>To play this audio clip, your browser needs to support HTML5.</em></p>
@@ -130,9 +132,12 @@
       <input type="checkbox" id="rotateVideo" />
       <label for="rotateVideo"></label>
       <video controls poster="images/cp_photo2.png">
+        <source src="https://raw.githubusercontent.com/rebeccadeal/cis-1350/master/html08/tutorial/media/cp_dance.mp4" type="video/mp4" /> <!-- cisnook bandwidth problem workaround -->
+        <source src="https://raw.githubusercontent.com/rebeccadeal/cis-1350/master/html08/tutorial/media/cp_dance.webm" type="video/webm" /> <!-- cisnook bandwidth problem workaround -->
         <source src="media/cp_dance.mp4" type="video/mp4" />
         <source src="media/cp_dance.webm" type="video/webm" />
-        <track kind="captions" label="Dance Captions" src="media/cp_captions.vtt" default />
+        <track kind="captions" label="Working Dance Captions" src="https://raw.githubusercontent.com/rebeccadeal/cis-1350/master/html08/tutorial/media/cp_captions.vtt" default /> <!-- cisnook bandwidth problem workaround -->
+        <track kind="captions" label="Dance Captions" src="media/cp_captions.vtt" />
         <p><em>To play this video clip, your browser needs to support HTML5.</em></p>
       </video>
     </aside>
