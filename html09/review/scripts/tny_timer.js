@@ -22,7 +22,7 @@ setInterval("showClock()", 1000);
 
 function showClock() {
   // show current date and time
-  var thisDay = new Date("May 19, 2018 09:31:27");
+  var thisDay = new Date();
   var localDate = thisDay.toLocaleDateString();
   var localTime = thisDay.toLocaleTimeString();
   // display the current date and time
