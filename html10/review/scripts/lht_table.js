@@ -29,7 +29,7 @@ for (var i = 0; i < eventDates.length; i++)
   if ((thisDay <= eventDate) && (eventDate <= endDate))
   {
     tableHTML += '<tr>';
-    tableHTML += '<td>' + eventDay + '@' + eventTime + '</td>';
+    tableHTML += '<td>' + eventDay + ' @ ' + eventTime + '</td>';
     tableHTML += '<td>' + eventDescriptions[i]+ '</td>';
     tableHTML += '<td>' + eventPrices[i] + '</td>';
     tableHTML += '</tr>';
