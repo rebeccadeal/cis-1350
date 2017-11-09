@@ -1,13 +1,13 @@
 "use strict";
 
 /*
-   New Perspectives on HTML5 and CSS3, 7th Edition
-   Tutorial 10
-   Tutorial Case
-   
-   Filename:   lht_events.js   
+New Perspectives on HTML5 and CSS3, 7th Edition
+Tutorial 10
+Tutorial Case
 
-   The dayEvent array contains the HTML code of the LHT events in August
+Filename: lht_events.js
+
+The dayEvent array contains the HTML code of the LHT events in August
 */
 
 var dayEvent = new Array();
@@ -19,7 +19,6 @@ dayEvent[4] = "<br /><a href='#'>American Favorites</a><br />7:30 pm<br />$24/$3
 dayEvent[5] = "<br /><a href='#'>Classics Brunch</a><br />11 am<br />$12";
 dayEvent[6] = "<br /><a href='#'>LHT Jazz Band</a><br />7 pm<br />$24";
 dayEvent[7] = "";
-
 
 dayEvent[8] = "<br /><a href='#'>Civic Forum</a><br />7 pm<br />free";
 dayEvent[9] = "<br /><a href='#'>Hamilton</a><br />7:30 pm<br />$48/$64/$88";

@@ -43,6 +43,7 @@ function showClock() {
   document.getElementById("sLeft").textContent = Math.floor(secs);
 }
 
+// calculate the date of the next 4th of July
 function nextJuly4(currentDate) {
   var cYear = currentDate.getFullYear();
   var jDate = new Date("July 4, 2018");
